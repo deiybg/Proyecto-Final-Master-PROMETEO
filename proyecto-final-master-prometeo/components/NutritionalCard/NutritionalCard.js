@@ -1,0 +1,1 @@
+import './NutritionalCard.css';
