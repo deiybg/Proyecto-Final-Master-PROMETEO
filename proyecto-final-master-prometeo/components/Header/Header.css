@@ -42,3 +42,73 @@ header {
 .nav-ul li a {
   font-weight: 600;
 }
+
+.abrir-menu {
+  width: auto;
+  height: 10vh;
+  background-color: transparent;
+  cursor: pointer;
+  display: none;
+  border: none;
+}
+
+.bi-list {
+  font-size: 50px;
+  background-color: transparent;
+  color: var(--secundary-color-text);
+}
+#cerrar {
+  border: none;
+  background-color: transparent;
+}
+
+.bi-x-lg {
+  font-size: 1.5rem;
+  background-color: transparent;
+  color: var(--secundary-color-text);
+  font-weight: 900;
+}
+.cerrar-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .abrir-menu,
+  .cerrar-menu {
+    display: block;
+  }
+
+  .nav {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: var(--global-padding);
+    background-color: var(--bg-color);
+    gap: var(--global-gap);
+    opacity: 0;
+    visibility: hidden;
+    height: 100vh;
+    z-index: 1000;
+    box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+  }
+
+  .nav.visible {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .nav-ul {
+    flex-direction: column;
+    align-items: end;
+  }
+
+  li a:hover {
+    font-weight: bold; /* Aplica negrita al pasar el ratón */
+    text-decoration: underline; /* Subraya el texto al pasar el ratón */
+    transform: translateY(-3px); /* Mueve el enlace ligeramente hacia arriba */
+    color: #000; /* Opcional: Cambia el color del texto al pasar el ratón */
+  }
+}

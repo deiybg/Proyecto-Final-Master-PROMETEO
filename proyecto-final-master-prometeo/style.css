@@ -29,6 +29,8 @@ body {
 
 a {
   text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
 }
 li {
   list-style-type: none;
