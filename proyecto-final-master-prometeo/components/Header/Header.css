@@ -81,7 +81,7 @@ header {
   .nav {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
     position: absolute;
     top: 0;
     right: 0;
@@ -102,13 +102,10 @@ header {
 
   .nav-ul {
     flex-direction: column;
-    align-items: end;
+    align-items: flex-end;
   }
 
-  li a:hover {
-    font-weight: bold; /* Aplica negrita al pasar el ratón */
-    text-decoration: underline; /* Subraya el texto al pasar el ratón */
-    transform: translateY(-3px); /* Mueve el enlace ligeramente hacia arriba */
-    color: #000; /* Opcional: Cambia el color del texto al pasar el ratón */
+  .nav-ul li a {
+    transition: all 0.3s ease;
   }
 }

@@ -31,7 +31,20 @@ a {
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
+  color: var(--secundary-color-text);
 }
 li {
   list-style-type: none;
+}
+
+.nav-ul li a:hover {
+  font-weight: bold;
+  text-decoration: underline;
+  transform: translateY(-3px);
+  font-size: 1.05rem;
+}
+
+main {
+  margin-top: 10vh;
+  padding: var(--global-padding);
 }

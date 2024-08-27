@@ -1,0 +1,12 @@
+#Footer-Heallthy {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  padding: var(--global-padding);
+}
+
+#Footer-Heallthy p {
+  color: var(--secundary-color-text);
+  font-weight: 600;
+}
