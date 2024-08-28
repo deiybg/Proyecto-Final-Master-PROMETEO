@@ -25,8 +25,8 @@ export const NutritionalInfo = ()=>{
   <label for="unit">Unidad:</label>
   <select id="unit" name="unit" required>
       
-      <option value="ounce">Onza</option>
-      <option value="pound">Libra</option>
+      <option value="ounce">Onzas</option>
+      <option value="pound">Libras</option>
       <option value="gram">Gramos</option>
     </select>
   
@@ -47,6 +47,7 @@ form.addEventListener("submit", async (event)=>{
     event.preventDefault();
     const infoQuantity = document.querySelector("#quantity").value;
     const infoUnit = document.querySelector("#unit").value;
+    const nameUnit = document.querySelector("#unit").selectedOptions[0].textContent;
     const infoFood = document.querySelector("#food").value.trim();
     
     const englishKeyword = await traductorKeyWords(infoFood);
@@ -64,12 +65,16 @@ form.addEventListener("submit", async (event)=>{
                 <div class="divContainer">
               <h2>Tabla Nutricional</h2>
               <h3>${infoFood}</h3>
-              <p>Valor nutricional en ${infoQuantity} ${infoUnit} de ${infoFood}</p>
-              <h4>Energia: ${result.calories.toFixed(2)} kcal</h4>
+              <p>Valor nutricional en ${infoQuantity} ${nameUnit} de ${infoFood}</p>
+              <h4>Energia: ${result.calories.toFixed(0)} kcal</h4>
               <h4>Proteína: ${result.protein.toFixed(2)} g</h4>
               <h4>Grasas: ${result.fat.toFixed(2)} g</h4>
               <h4>Carbohidratos: ${result.carbohydrates.toFixed(2)} g</h4>
+              <h4>Fibra: ${result.fiber.toFixed(2)} g</h4>
+              <h4>Azucar: ${result.sugar.toFixed(2)} g</h4>
             </div>`;
+
+            totalNutrients.FIBTG.quantity
         
             }
             document.querySelector("#food").value = "";
