@@ -1,9 +1,9 @@
 #Footer-Heallthy {
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  position: relative;
   text-align: center;
   padding: var(--global-padding);
+  bottom: 0;
 }
 
 #Footer-Heallthy p {

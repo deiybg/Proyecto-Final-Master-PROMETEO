@@ -5,9 +5,14 @@
   --primary-color-text: rgb(10, 11, 12);
   --secundary-color-text: rgb(10, 85, 47);
   --global-padding: 20px;
+  --global-padding-short: 10px;
+  --global-padding-large: 40px;
   --global-gap: 20px;
+  --global-gap-large: 40px;
   --tittle-font-family: "Lobster";
   --global-font-family: "Roboto";
+  --global-margin: 20px;
+  --global-margin-short: 10px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -47,4 +52,5 @@ li {
 main {
   margin-top: 10vh;
   padding: var(--global-padding);
+  min-height: 80vh;
 }

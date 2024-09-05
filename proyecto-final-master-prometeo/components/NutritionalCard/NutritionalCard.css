@@ -1,0 +1,166 @@
+.nutritionalSummaryUl {
+  display: flex;
+  gap: var(--global-gap);
+  justify-content: space-evenly;
+}
+
+.nutrientContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.divContainer_Summary,
+.divContainer_Micronutrients,
+.divContainer_InfoNutritional,
+.divContainer_IDR,
+.divContainer_Breakdown {
+  background-color: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  height: max-content;
+  padding: var(--global-padding-short);
+  border-radius: 8px;
+}
+.divContainer_Summary h4 {
+  text-align: center;
+  margin-bottom: var(--global-margin);
+}
+.nutritionalSummaryLi {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.divisor-Micronutrients {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+}
+
+.span-Micronutrients {
+  text-align: center;
+  margin: 0;
+}
+
+.divContainer_Summary,
+.divContainer_InfoNutritional,
+.divContainer_IDR {
+  margin-bottom: var(--global-margin-short);
+}
+.divContainer_Micronutrients h4 {
+  text-align: center;
+  margin-bottom: var(--global-margin);
+}
+.p-Micronutrients {
+  font-weight: 600;
+  color: var(--secundary-color-text);
+  font-size: 0.8rem;
+}
+
+.divisor-Micronutrients span,
+.spanInfoNutritional {
+  font-size: 0.8rem;
+}
+.divisor-Micronutrients {
+  margin-bottom: var(--global-margin-short);
+}
+.containerMicro {
+  border: 0.5px black solid;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+.h4-green {
+  color: var(--secundary-color-text);
+  font-weight: 900;
+}
+
+.divContainer_InfoNutritional {
+  padding: var(--global-gap);
+}
+
+.divContainer_InfoNutritional h2 {
+  margin-bottom: var(--global-margin-short);
+}
+
+.porcionContainer {
+  border-bottom: 8px solid #ddd;
+}
+
+.nutrientContainer {
+  margin-bottom: var(--global-margin-short);
+}
+
+.border-bottom {
+  border-bottom: 2px solid #ddd;
+  text-align: center;
+}
+
+.divContainer_IDR {
+  margin-top: var(--global-margin-short);
+}
+
+.containerIDR {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  border: 0.5px black solid;
+  border-radius: 8px;
+  padding: var(--global-padding-short);
+}
+
+.pIDR {
+  font-size: 1.2rem;
+  line-height: 1.2em;
+}
+
+.span-totalCalories {
+  display: block;
+  margin-top: 4px;
+}
+.pCalculatedCalories {
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+.containerCanvas {
+  width: 100px;
+  height: 100px;
+}
+
+.divContainer_Breakdown li {
+  font-size: 0.8rem;
+  margin-top: var(--global-margin-short);
+}
+
+.containerBreakdownMacronutrients {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--global-padding-short);
+  align-items: center;
+}
+
+.square {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin-left: 10px;
+  border: 1px solid #000;
+  border-radius: 3px;
+}
+
+.square-carbohydrates {
+  background-color: rgb(10, 85, 47); /* Verde claro */
+}
+
+.square-fat {
+  background-color: rgb(231, 76, 60); /* Azul cielo */
+}
+
+.square-protein {
+  background-color: rgb(255, 165, 0); /* Naranja */
+}

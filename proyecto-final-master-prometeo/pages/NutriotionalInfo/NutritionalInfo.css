@@ -1,0 +1,14 @@
+.divContainerNutritionalInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: var(--global-margin);
+}
+
+#resumen-container {
+  width: 40vw;
+}
+
+#results-container {
+  width: 40vw;
+}
