@@ -2,7 +2,7 @@ import './NutritionalCard.css';
 
 
 //Esta función imrprime los datos nutricionales principales del alimento a consultar
-export const printNutritionalInfo = (result,infoQuantity,nameUnit)=>{
+export const printNutritionalInfo = (result,infoQuantity,nameUnit,infoFood)=>{
     const resultsContainer = document.querySelector("#results-container");
     resultsContainer.innerHTML = '';
     
@@ -10,7 +10,9 @@ export const printNutritionalInfo = (result,infoQuantity,nameUnit)=>{
     resultsContainer.innerHTML = 
     `
     <div class="divContainer_InfoNutritional">
-  <h2 class="border-bottom">Info. Nutricional</h2>
+    <div class="titleInfoNutritional">
+  <h2 class="border-bottom">Info. Nutricional</h2><p class="spanH2InfoNutritional">${infoFood}</p>
+  </div>
   <div class="nutrientContainer porcionContainer">
 <h5>Tamaño de la Porción </h5><span class="spanInfoNutritional">${infoQuantity || 'N/A'} ${nameUnit || 'N/A'}</span>
 </div>
@@ -170,10 +172,10 @@ divContainerSummary.innerHTML = `
 
 <h4 class="h4-green border-bottom">Resumen Nutricional</h4>
 <ul class="nutritionalSummaryUl">
-<li class="nutritionalSummaryLi">${result.TotalCalories} Kcal<span class="spanSummary">🔥 calorias</span></li>
-<li class="nutritionalSummaryLi">${result.FAT?.quantity?.toFixed(2) || 'N/A'} g<span class="spanSummary">🥑 grasas</span></li>
-<li class="nutritionalSummaryLi">${result.CHOCDF?.quantity?.toFixed(2) || 'N/A'} g<span class="spanSummary">🥔 carbohidratos</span></li>
-<li class="nutritionalSummaryLi">${result.PROCNT?.quantity?.toFixed(2) || 'N/A'} g<span class="spanSummary">🍗 proteinas</span></li>
+<li class="nutritionalSummaryLi">${result.TotalCalories} Kcal<span >🔥</span><span > calorias</span></li>
+<li class="nutritionalSummaryLi">${result.FAT?.quantity?.toFixed(2) || 'N/A'} g<span >🥑</span><span > grasas</span></li>
+<li class="nutritionalSummaryLi">${result.CHOCDF?.quantity?.toFixed(2) || 'N/A'} g<span >🥔</span><span > carbohidratos</span></li>
+<li class="nutritionalSummaryLi">${result.PROCNT?.quantity?.toFixed(2) || 'N/A'} g<span >🍗</span><span > proteinas</span></li>
 </ul>
 `
 resultsContainer.appendChild(divContainerSummary);
@@ -185,47 +187,105 @@ export const printNutritionalMicronutrients =(result) =>{
     divContainerMicronutrients.classList.add("divContainer_Micronutrients");
     divContainerMicronutrients.innerHTML = `
     <h4 class="h4-green border-bottom">Micronutrientes ---> % IR</h4>
-    <div class="containerMicro">
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Vitamina A (mg)</p><span class="span-Micronutrients">---> ${result.VITA_RAE?.quantity?.toFixed(2) || 'N/A'}</span><span>${result.VITA_RAE_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
+    <div class="containerCanvasMicronutrients">
+    <canvas id="micronutrientsChart"></canvas>
     </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Vitamina D (mg)</p><span class="span-Micronutrients">---> ${result.VITD?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.VITD_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Vitamina E (mg)</p><span class="span-Micronutrients">---> ${result.TOCPHA?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.TOCPHA_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Riboflavina (mg)</p><span class="span-Micronutrients">---> ${result.RIBF?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.RIBF_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Niacina (mg)</p><span class="span-Micronutrients">---> ${result.NIA?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.NIA_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Ácido Fólico (mg)</p><span class="span-Micronutrients">---> ${result.FOLDFE?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.FOLDFE_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Vitamina B12 (mg)</p><span class="span-Micronutrients">---> ${result.VITB12?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.VITB12_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Fósforo (mg)</p><span class="span-Micronutrients">---> ${result.P?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.P_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Zinc (mg)</p><span class="span-Micronutrients">---> ${result.ZN?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.ZN_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    <div class="divisor-Micronutrients">
-    <p class="p-Micronutrients">Magnesio (mg)</p><span class="span-Micronutrients">---> ${result.MG?.quantity?.toFixed(2) || 'N/A'}</span>
-    <span>${result.MG_DAILY?.quantity?.toFixed(2) || 'N/A'}</span>
-    </div>
-    </div>
+    
     `
     resultsContainer.appendChild(divContainerMicronutrients);
+
+    const chartMicrinutrients = document.querySelector('#micronutrientsChart');
+    const data = [
+    result.VITA_RAE_DAILY?.quantity?.toFixed(2) || '0',
+    result.VITD_DAILY?.quantity?.toFixed(2) || '0',
+    result.TOCPHA_DAILY?.quantity?.toFixed(2) || '0',
+    result.RIBF_DAILY?.quantity?.toFixed(2) || '0',
+    result.NIA_DAILY?.quantity?.toFixed(2) || '0',
+    result.FOLDFE_DAILY?.quantity?.toFixed(2) || '0',
+    result.VITB12_DAILY?.quantity?.toFixed(2) || '0',
+    result.P_DAILY?.quantity?.toFixed(2) || '0',
+    result.ZN_DAILY?.quantity?.toFixed(2) || '0',
+    result.MG_DAILY?.quantity?.toFixed(2) || '0',
+    ]
+
+    new Chart(chartMicrinutrients,{
+        type: 'bar',
+        data:{
+            labels: ['Vitamina A','Vitamina D','Vitamina E','Riboflavina','Niacina','Ácido Fólico','Vitamina B12','Fósforo','Zinc','Magnesio'],
+            datasets:[{
+                data: data,
+                backgroundColor: [
+                    'rgb(10, 85, 47)'
+                  ],
+                borderWidth: 1,
+            }]
+        },
+        options: {
+            
+            indexAxis: 'y',
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false, // Ocultar la leyenda si no se necesita
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return tooltipItem.raw + '% IR'; // Mostrar el porcentaje en la etiqueta
+                        }
+                    }
+                },
+                subtitle: {
+                display: true,
+                    text: 'Basado en una Ingesta Diaria Recomendada de 2000 cal',
+                    padding: {
+                        bottom: 10
+                    },
+                    font: {
+                        size: 10,
+                        weight: 'bold'
+                    },
+                    color: 'rgb(10, 85, 47)',
+                    align: 'center'
+                },
+                max: 100,
+            },
+            scales: {
+                x: {
+                    grid: {
+                        display: false // Ocultar la cuadrícula en el eje X
+                        
+                    },
+                    ticks: {
+                        stepSize: 10 ,
+                        display: false,
+                        
+                        
+                    },
+                },
+                y: {
+                    grid: {
+                        display: false // Ocultar la cuadrícula en el eje X
+                    },
+                    ticks: {
+                        ticks: {
+                            font: {
+                                size: 25 // Tamaño de fuente para el eje Y
+                            }
+                            
+                            
+                        },
+                        
+                        
+                    },
+                    
+                }
+            
+        },
+    }
+       
+        
+    }
+
+    );
 }

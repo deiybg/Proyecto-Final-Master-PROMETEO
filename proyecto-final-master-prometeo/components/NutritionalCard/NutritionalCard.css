@@ -1,7 +1,7 @@
 .nutritionalSummaryUl {
   display: flex;
+  width: 100%;
   gap: var(--global-gap);
-  justify-content: space-evenly;
 }
 
 .nutrientContainer {
@@ -27,11 +27,24 @@
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 10px;
+  width: 100%;
   border-radius: 8px;
-
   background-color: rgb(240, 240, 240);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.border-bottomtitleInfoNutritional {
+  display: flex;
+  justify-content: space-between;
+}
+.spanH2InfoNutritional {
+  text-transform: capitalize;
+  color: var(--secundary-color-text);
+  font-weight: 900;
+  text-align: center;
+  font-size: 1.3rem;
+  margin: var(--global-margin-short) 0;
 }
 
 .divisor-Micronutrients {
@@ -163,4 +176,23 @@
 
 .square-protein {
   background-color: rgb(255, 165, 0); /* Naranja */
+}
+
+#micronutrientsChart label {
+  font-size: 50px;
+}
+
+@media (max-width: 768px) {
+  .pCalculatedCalories {
+    font-size: 1.5rem;
+  }
+  .pIDR,
+  .span-totalCalories {
+    font-size: 0.8rem;
+  }
+
+  .containerCanvas {
+    width: 80px;
+    height: 80px;
+  }
 }

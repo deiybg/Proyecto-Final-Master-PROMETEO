@@ -1,14 +1,59 @@
-.divContainerNutritionalInfo {
+#divContainerNutritionalInfo {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: var(--global-margin);
+  width: 100%;
 }
 
+#results-container,
 #resumen-container {
-  width: 40vw;
+  flex: 1;
+  min-width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-#results-container {
-  width: 40vw;
+#error-message {
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  color: var(--secundary-color-text);
+  font-size: 1.5rem;
+  margin-top: 20px;
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.error-message {
+  visibility: visible;
+}
+.error-messageHidden {
+  visibility: hidden;
+}
+
+.loading-hidden {
+  display: none;
+}
+
+.loading-visible {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loading img {
+  width: 50px; /* Ajusta el tamaño según lo que necesites */
+  height: 50px;
+}
+
+@media (max-width: 768px) {
+  #results-container,
+  #resumen-container {
+    min-width: 100%;
+  }
 }
