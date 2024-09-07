@@ -2,7 +2,7 @@ import './NutritionalInfo.css';
 import { cleanPage } from '../../Utils/CleanPage';
 import { dataNutritional } from '../../data/dataNutricion';
 import { traductorKeyWords } from '../../Utils/Traductor';
-import { printNutritionalInfo, printIDR_Info, printBreakdownCalories, printNutritionalSummary, printNutritionalMicronutrients } from '../../components/NutritionalCard/NutritionalCard';
+import { printNutritionalInfo, printIDR_Info, printBreakdownCalories, printNutritionalSummary, printNutritionalMicronutrients, printDietLabels } from '../../components/NutritionalCard/NutritionalCard';
 
 
 export const NutritionalInfo = ()=>{
@@ -94,6 +94,8 @@ form.addEventListener("submit", async (event)=>{
             
             
             printBreakdownCalories(result);
+            printDietLabels(result);
+
 
             printNutritionalSummary(result);
 

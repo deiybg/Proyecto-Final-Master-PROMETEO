@@ -2,6 +2,9 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  
+  
+
 }
 
 #results-container,
@@ -10,6 +13,7 @@
   min-width: 50%;
   padding: 10px;
   box-sizing: border-box;
+ 
 }
 
 #error-message {

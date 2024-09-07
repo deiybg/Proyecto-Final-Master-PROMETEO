@@ -7,15 +7,15 @@ try {
     const totalNutrientsKcal = dataJson.totalNutrientsKCal; // total de macros expresados en kcal
     const totalNutrients = dataJson.totalNutrients; // macronutrientes expresados en g y micronutrientes expresados en mg
     const totalNutrientsDaily = dataJson.totalDaily; // total de todos los nutrienes expresados en % con la relacion a los requerimientos diarios
-
-    console.log(totalNutrientsDaily);
+    const dietLabels = dataJson.dietLabels;
     
     
     
-
-    
+  
     const getInfoTotalMacro = (totalNutrientsKcal,totalNutrients,totalNutrientsDaily) => {
         return {
+
+          DietLabels : dataJson.dietLabels,
            TotalCalories: dataJson.calories,
             //ACA EMPIEZAN LOS MACRONUTRIENTES EXPRESADOS EN UNIDAD KCAL
           CHOCDF_KCAL: {

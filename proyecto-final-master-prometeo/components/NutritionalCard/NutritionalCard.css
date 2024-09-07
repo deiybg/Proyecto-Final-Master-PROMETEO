@@ -12,13 +12,14 @@
 .divContainer_Micronutrients,
 .divContainer_InfoNutritional,
 .divContainer_IDR,
-.divContainer_Breakdown {
+.divContainer_Breakdown, .divContainerDietLabels{
   background-color: white;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   height: max-content;
   padding: var(--global-padding-short);
   border-radius: 8px;
 }
+
 .divContainer_Summary h4 {
   text-align: center;
   margin-bottom: var(--global-margin);
@@ -63,6 +64,13 @@
 .divContainer_IDR {
   margin-bottom: var(--global-margin-short);
 }
+
+.divContainerDietLabels{
+  margin-top: var(--global-margin-short);
+  text-align: center;
+ 
+
+}
 .divContainer_Micronutrients h4 {
   text-align: center;
   margin-bottom: var(--global-margin);
@@ -76,6 +84,7 @@
 .divisor-Micronutrients span,
 .spanInfoNutritional {
   font-size: 0.8rem;
+  font-weight: 600;
 }
 .divisor-Micronutrients {
   margin-bottom: var(--global-margin-short);
@@ -152,7 +161,7 @@
 
 .containerBreakdownMacronutrients {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: var(--global-padding-short);
   align-items: center;
 }
@@ -180,6 +189,33 @@
 
 #micronutrientsChart label {
   font-size: 50px;
+}
+
+.ulDietLabels {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+ 
+}
+
+.ulDietLabels li {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 5px;
+  color: var(--secundary-color-text);
+  background-color: var(--bg-color);
+  font-weight: 900;
+}
+.pDietLabels{
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  color: var(--secundary-color-text);
+  margin-top: var(--global-margin-short);
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {

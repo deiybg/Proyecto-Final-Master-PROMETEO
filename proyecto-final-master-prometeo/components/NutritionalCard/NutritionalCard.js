@@ -53,8 +53,6 @@ export const printNutritionalInfo = (result,infoQuantity,nameUnit,infoFood)=>{
 <h5 class="h4-green">Potasio:</h5><span class="spanInfoNutritional"> ${result.K?.quantity?.toFixed(2) || 'N/A'} ${result.K?.unit || 'N/A'}</span>
 </div>
 
-  
-  
 </div>`;
 
 }
@@ -76,14 +74,21 @@ export const printIDR_Info = (result)=>{
     `
     resultsContainer.appendChild(divContainerIDR);
 
-    let backgroundColor,data;
+    let backgroundColor,data, labels;
     // Si sobrepasa el 100%, todo el gráfico se pinta de rojo
     if(calculatedCalories >100){
         backgroundColor = ['rgb(255, 0, 0)']; // Rojo para todo el gráfico
         data = [100];// Pinta todo como 100%
-    }else{ // Si no sobrepasa el 100%, usar verde y gris
+        labels = ['Sobrepasa el IDR'];
+    }else if(calculatedCalories == 0){
+        backgroundColor = ['rgb(32, 172, 32)']; // Verde para todo el gráfico
+        data = [100];
+        labels = ['Alimento sin cal'];
+    }
+    else{ // Si no sobrepasa el 100%, usar verde y gris
         backgroundColor = ['rgb(75, 192, 192)', 'rgb(211, 211, 211)'];  // Verde y gris
         data = [calculatedCalories.toFixed(2), restCalories.toFixed(2)]; // Mostrar consumido y restante
+        labels = ['Consumido %', 'Restante %'];
     }
 
 
@@ -92,7 +97,7 @@ export const printIDR_Info = (result)=>{
     new Chart(ctx,{
         type: 'doughnut',
         data: {
-            labels: calculatedCalories > 100 ? ['Sobrepasa el IDR'] : ['Consumido %', 'Restante %'],
+            labels: labels,
             datasets: [{
               data: data,
               backgroundColor: backgroundColor,
@@ -181,6 +186,7 @@ divContainerSummary.innerHTML = `
 resultsContainer.appendChild(divContainerSummary);
 }
 
+//Esta función imprime en valores porcentuales los micronuitrientes
 export const printNutritionalMicronutrients =(result) =>{
     const resultsContainer = document.querySelector("#resumen-container");
     const divContainerMicronutrients = document.createElement("div");
@@ -288,4 +294,37 @@ export const printNutritionalMicronutrients =(result) =>{
     }
 
     );
+}
+
+export const printDietLabels = (result) =>{
+
+    const container = document.querySelector("#results-container");
+    const divContainer = document.createElement("div");
+    divContainer.classList.add("divContainerDietLabels");
+    const h4 = document.createElement("h4");
+    h4.textContent = 'Etiquetas Dietéticas';
+    h4.classList.add("h4-green", "border-bottom");
+    divContainer.appendChild(h4);
+    const ul = document.createElement("ul");
+    ul.classList.add("ulDietLabels");
+    const labels = result.DietLabels.filter(label => label.trim() !== "");
+    
+    if (labels.length === 0) {
+        const p = document.createElement("p");
+        p.classList.add("pDietLabels");
+        p.textContent = 'No se encontraron etiquetas para este alimento';
+        divContainer.append(p);
+    } else {
+        labels.forEach(label => {
+            const li = document.createElement("li");
+            li.textContent = '#' + label;
+            ul.appendChild(li);
+        });
+        divContainer.appendChild(ul);
+    }
+    ;
+    
+    
+    container.appendChild(divContainer)
+    
 }
