@@ -73,8 +73,9 @@ form.addEventListener("submit", async (event)=>{
         btnSearchFood.disabled = true;  // Deshabilitar el botón para evitar múltiples envíos
         errorMessage.textContent = "";  // Limpiar mensajes de error
         errorMessage.classList.add("error-messageHidden"); 
-        resultsContainer.innerHTML = "";  // Limpiar resultados anteriores
-        resumenContainer.innerHTML = "";  // Limpiar resumen anterior
+        cleanPage(resultsContainer);
+        cleanPage(resumenContainer);
+        
 
     try {
         const infoQuantity = document.querySelector("#quantity").value;
@@ -101,6 +102,8 @@ form.addEventListener("submit", async (event)=>{
 
             printNutritionalMicronutrients(result);
             printIDR_Info(result);
+           
+
             document.querySelector("#food").value = "";
             
     } catch (error) {
@@ -111,7 +114,7 @@ form.addEventListener("submit", async (event)=>{
     }finally {
       loading.classList.remove("loading-visible");
       loading.classList.add("loading-hidden");
-      btnSearchFood.disabled = false;  // Habilitar el botón nuevamente
+      btnSearchFood.disabled = false;  
       
   }
    

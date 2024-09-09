@@ -1,12 +1,12 @@
 import './NutritionalCard.css';
+import { cleanPage } from '../../Utils/CleanPage';
 
 
 //Esta función imrprime los datos nutricionales principales del alimento a consultar
 export const printNutritionalInfo = (result,infoQuantity,nameUnit,infoFood)=>{
     const resultsContainer = document.querySelector("#results-container");
-    resultsContainer.innerHTML = '';
+    cleanPage(resultsContainer);
     
-
     resultsContainer.innerHTML = 
     `
     <div class="divContainer_InfoNutritional">
@@ -71,6 +71,7 @@ export const printIDR_Info = (result)=>{
     <canvas id="IDRchart"></canvas>
     </div>
     </div>
+    <p class="h4-green pIngestaDR">Basado en una Ingesta Diaria Recomendada (IDR) de 2000 kcal</p>
     `
     resultsContainer.appendChild(divContainerIDR);
 
@@ -170,7 +171,7 @@ export const printBreakdownCalories = (result)=>{
 //Esta función imprime en valores el total de las calorias en kcal y del resto de macros en g, de una manera mas visible
 export const printNutritionalSummary = (result) =>{
 const resultsContainer = document.querySelector("#resumen-container");
-resultsContainer.innerHTML = "";
+cleanPage(resultsContainer);
 const divContainerSummary = document.createElement("div");
 divContainerSummary.classList.add("divContainer_Summary");
 divContainerSummary.innerHTML = `
@@ -192,7 +193,7 @@ export const printNutritionalMicronutrients =(result) =>{
     const divContainerMicronutrients = document.createElement("div");
     divContainerMicronutrients.classList.add("divContainer_Micronutrients");
     divContainerMicronutrients.innerHTML = `
-    <h4 class="h4-green border-bottom">Micronutrientes ---> % IR</h4>
+    <h4 class="h4-green border-bottom">Micronutrientes % IDR</h4>
     <div class="containerCanvasMicronutrients">
     <canvas id="micronutrientsChart"></canvas>
     </div>
@@ -212,88 +213,68 @@ export const printNutritionalMicronutrients =(result) =>{
     result.P_DAILY?.quantity?.toFixed(2) || '0',
     result.ZN_DAILY?.quantity?.toFixed(2) || '0',
     result.MG_DAILY?.quantity?.toFixed(2) || '0',
-    ]
+    ];
+    
+    const backgroundColors = data.map(value => {
+        return parseFloat(value) > 100 ? 'rgb(255, 0, 0)' : 'rgb(10, 85, 47)'; // Si el valor es mayor a 100, usa rojo; si no, usa verde
+    });
 
-    new Chart(chartMicrinutrients,{
+     const labelsIDR = data.map(label =>{
+        return parseFloat(label) > 100 ? ' % Exdece los valores diarios recomendados' : '% IDR';
+     });
+
+    new Chart(chartMicrinutrients, {
         type: 'bar',
-        data:{
-            labels: ['Vitamina A','Vitamina D','Vitamina E','Riboflavina','Niacina','Ácido Fólico','Vitamina B12','Fósforo','Zinc','Magnesio'],
-            datasets:[{
-                data: data,
-                backgroundColor: [
-                    'rgb(10, 85, 47)'
-                  ],
+        data: {
+            labels: ['Vitamina A', 'Vitamina D', 'Vitamina E', 'Riboflavina', 'Niacina', 'Ácido Fólico', 'Vitamina B12', 'Fósforo', 'Zinc', 'Magnesio'],
+            datasets: [{
+                data: data,  
+                backgroundColor: backgroundColors,
                 borderWidth: 1,
             }]
         },
         options: {
-            
             indexAxis: 'y',
             responsive: true,
             plugins: {
                 legend: {
-                    display: false, // Ocultar la leyenda si no se necesita
+                    display: false, 
                 },
                 tooltip: {
                     callbacks: {
-                        label: function(tooltipItem) {
-                            return tooltipItem.raw + '% IR'; // Mostrar el porcentaje en la etiqueta
+                        label: function (tooltipItem) {
+                            return tooltipItem.raw + labelsIDR[tooltipItem.dataIndex]; 
                         }
                     }
                 },
-                subtitle: {
-                display: true,
-                    text: 'Basado en una Ingesta Diaria Recomendada de 2000 cal',
-                    padding: {
-                        bottom: 10
-                    },
-                    font: {
-                        size: 10,
-                        weight: 'bold'
-                    },
-                    color: 'rgb(10, 85, 47)',
-                    align: 'center'
-                },
-                max: 100,
             },
             scales: {
                 x: {
                     grid: {
-                        display: false // Ocultar la cuadrícula en el eje X
-                        
+                        display: false 
                     },
                     ticks: {
-                        stepSize: 10 ,
+                        stepSize: 10,
                         display: false,
-                        
-                        
                     },
+                    max: 100, 
                 },
                 y: {
                     grid: {
-                        display: false // Ocultar la cuadrícula en el eje X
+                        display: false 
                     },
                     ticks: {
-                        ticks: {
-                            font: {
-                                size: 25 // Tamaño de fuente para el eje Y
-                            }
-                            
-                            
+                        font: {
+                            size: 0.8 * 16, // Convertimos rem a px; 0.8rem equivale a 12.8px
                         },
-                        
-                        
-                    },
-                    
+                        color: 'rgb(10, 85, 47)', 
+                    }
                 }
-            
-        },
-    }
-       
-        
-    }
-
-    );
+            },
+        }
+    });
+    
+    
 }
 
 export const printDietLabels = (result) =>{
@@ -327,4 +308,5 @@ export const printDietLabels = (result) =>{
     
     container.appendChild(divContainer)
     
-}
+};
+

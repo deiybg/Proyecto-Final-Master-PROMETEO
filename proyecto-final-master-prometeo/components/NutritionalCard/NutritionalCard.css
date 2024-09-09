@@ -133,6 +133,7 @@
   border: 0.5px black solid;
   border-radius: 8px;
   padding: var(--global-padding-short);
+
 }
 
 .pIDR {
@@ -216,6 +217,10 @@
   color: var(--secundary-color-text);
   margin-top: var(--global-margin-short);
   font-weight: 700;
+}
+.pIngestaDR{
+  text-align: center;
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
