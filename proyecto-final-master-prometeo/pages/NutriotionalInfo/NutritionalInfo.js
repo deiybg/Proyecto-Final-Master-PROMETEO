@@ -13,6 +13,7 @@ export const NutritionalInfo = ()=>{
     <fieldset>
      <legend> Buscar Alimento</legend>
     <form id="nutrition-form">
+    <div class="containerForm">
     <label for="quantity">Cantidad:</label>
     <select id="quantity" name="quantity" required>  
       <option value="100">100</option>
@@ -32,11 +33,13 @@ export const NutritionalInfo = ()=>{
     <option value="milliliter">Mililitros</option>
     </optgroup>
     </select>
-  
+    </div>
+  <div class="containerButton">
   <label for="food">Alimento:</label>
-  <input type="text" id="food" name="food" placeholder="ej: pepino" required>
+  <input type="text" id="food" name="food" placeholder=" ej: pepino" required>
   
-  <button id="btnSearchFood" type="submit">Obtener Información Nutricional</button>
+  <button id="btnSearchFood" type="submit">Obtener Información</button>
+  </div>
 </form>
 </fieldset>
 </div>

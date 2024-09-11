@@ -3,10 +3,110 @@
   flex-wrap: wrap;
   width: 100%;
   
-  
-
+}
+.containerNutritionForm{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items:center;
+  margin-top: -10px;
+}
+.containerNutritionForm  legend{
+  text-align: center;
+}
+.containerNutritionForm label, legend{
+  color: var(--secundary-color-text);
+  font-weight: 900;
+}
+.containerNutritionForm fieldset{
+  width: 100%;
+  border: 1px black dotted;
+  border-radius: 8px;
+  margin: var(--global-margin-short);
 }
 
+.containerForm > select{
+  width: 100px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+}
+#quantity, #unit{
+  text-align: center;
+  text-align-last: center;
+  margin-left: -40px;
+}
+.containerForm{
+  flex: 1 1 30%; 
+  max-width: 30%; 
+  box-sizing: border-box;
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: var(--global-gap);
+  
+}
+.containerButton{
+  flex: 1 1 70%; 
+  max-width: 70%; 
+  box-sizing:border-box;
+  display: flex;
+  height: auto;
+  align-items: center;
+  gap: var(--global-gap-short);
+  justify-content: center;
+  margin: 0;
+}
+#food{
+  min-width: 70%;
+  height: 30px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  padding: var(--global-padding-short);
+  border: none;
+  margin: 0;
+}
+#food::placeholder{
+  padding: var(--global-padding-short);
+  color: var(--secundary-color-text);
+}
+#food:focus {
+  outline: none; 
+  border-color: initial; 
+}
+
+#btnSearchFood{
+  height: 30px;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: var(--global-padding-short);
+  background-color: var(--secundary-color-text);
+  color: var(--bg-color);
+  font-weight: 700;
+  border: none;
+  margin-left: -8px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.5s all ease-out;
+  
+}
+
+#btnSearchFood:hover{
+  background-color: rgb(60, 180, 75);
+  color: black;
+}
+
+#nutrition-form{
+  width: 100%;
+  display: flex;
+  padding: var(--global-padding-short);
+ 
+  
+  
+}
+/* /////////////Aca se empieza a maquetar los contenedor results y container/////////////// */
 #results-container,
 #resumen-container {
   flex: 1;
@@ -59,5 +159,18 @@
   #results-container,
   #resumen-container {
     min-width: 100%;
+  }
+
+  #nutrition-form{
+    display:block;
+  }
+  .containerButton, .containerForm{
+    min-width: 100%;
+  }
+  .containerButton{
+    padding: var(--global-padding-short);
+  }
+  #food{
+    min-width: 50%S;
   }
 }
