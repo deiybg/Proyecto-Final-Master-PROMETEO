@@ -171,6 +171,10 @@
     padding: var(--global-padding-short);
   }
   #food{
-    min-width: 50%S;
+    min-width: 60%;
+    height: 15px;
+  }
+  #btnSearchFood{
+    height: 15px;
   }
 }

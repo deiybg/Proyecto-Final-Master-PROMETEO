@@ -26,8 +26,8 @@ export const NutritionalInfo = ()=>{
   <label for="unit">Unidad:</label>
   <select id="unit" name="unit" required> 
     <optgroup label="Masa">
-    <option value="ounce">Onzas</option>
     <option value="gram">Gramos</option>
+    <option value="ounce">Onzas</option>
     </optgroup>
     <optgroup label="Volumen">
     <option value="milliliter">Mililitros</option>

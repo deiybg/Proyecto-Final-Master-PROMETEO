@@ -87,7 +87,7 @@ export const printIDR_Info = (result)=>{
         labels = ['Alimento sin cal'];
     }
     else{ // Si no sobrepasa el 100%, usar verde y gris
-        backgroundColor = ['rgb(75, 192, 192)', 'rgb(211, 211, 211)'];  // Verde y gris
+        backgroundColor = ['rgb(10, 85, 47)', 'rgb(211, 211, 211)'];  // Verde y gris
         data = [calculatedCalories.toFixed(2), restCalories.toFixed(2)]; // Mostrar consumido y restante
         labels = ['Consumido %', 'Restante %'];
     }
@@ -132,9 +132,9 @@ export const printBreakdownCalories = (result)=>{
     <h4 class="h4-green border-bottom">Desglose de Calorías</h4>
     <div class="containerBreakdownMacronutrients">
     <ul>
-    <li class="h4-green">Carbohidratos (${percentageValueCHOCDF?.toFixed(2) || 0}%)<span class="square square-carbohydrates"></span></li>
-    <li class="h4-green">Grasa (${percentageValueFAT?.toFixed(2) || 0}%)<span class="square square-fat"></span></li>
-    <li class="h4-green">Proteínas (${percentageValuePROCNT?.toFixed(2) || 0}%)<span class="square square-protein"></span></li>
+    <li class="h4-green">Carbohidratos (${percentageValueCHOCDF?.toFixed(1) || 0}%)<span class="square square-carbohydrates"></span></li>
+    <li class="h4-green">Grasa (${percentageValueFAT?.toFixed(1) || 0}%)<span class="square square-fat"></span></li>
+    <li class="h4-green">Proteínas (${percentageValuePROCNT?.toFixed(1) || 0}%)<span class="square square-protein"></span></li>
 </ul>
     <div class="containerCanvas">
     <canvas id="breakdownchart"></canvas>
@@ -150,7 +150,7 @@ export const printBreakdownCalories = (result)=>{
         data:{
             labels: ['Carbohidratos','Grasa','Proteina'],
             datasets:[{
-                data:[percentageValueCHOCDF,percentageValueFAT,percentageValuePROCNT],
+                data:[percentageValueCHOCDF.toFixed(1),percentageValueFAT.toFixed(1),percentageValuePROCNT.toFixed(1)],
                 backgroundColor: ['rgb(10, 85, 47)','rgb(231, 76, 60)','rgb(255, 165, 0)'],
                 hoverOffset: 4,
                 borderWidth: 3,
@@ -266,6 +266,7 @@ export const printNutritionalMicronutrients =(result) =>{
                     ticks: {
                         font: {
                             size: 0.8 * 16, // Convertimos rem a px; 0.8rem equivale a 12.8px
+                            weight: 900,
                         },
                         color: 'rgb(10, 85, 47)', 
                     }

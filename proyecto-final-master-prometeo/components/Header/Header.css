@@ -43,6 +43,12 @@ header {
   display: flex;
   gap: var(--global-gap);
   justify-content: space-around;
+  align-items: center;
+}
+
+.nav-ul li{
+  text-align: center;
+  align-items: center;
 }
 
 .nav-ul li a {
@@ -79,6 +85,25 @@ header {
   cursor: pointer;
 }
 
+
+.nav-ul li button {
+  font-family: "Roboto";
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 18px 32px; 
+  color: white; 
+  background-color: var(--secundary-color-text); 
+  border: none; 
+  border-radius: 12px; 
+  cursor: pointer; 
+  transition: 0.5s all ease-out;
+}
+
+.nav-ul li button:hover {
+  background-color: rgb(60, 180, 75);
+  color: black;
+
+}
 @media (max-width: 768px) {
   .abrir-menu,
   .cerrar-menu {

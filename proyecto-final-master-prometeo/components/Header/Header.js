@@ -24,7 +24,7 @@ const template = ()=>{
  <a href="#" id="adviceAndTips">Tips</a>
  </li>
  <li>
- <a href="#" id="contactMe">Contactame</a>
+ <button id="contactMe">Contáctame</button>
  </li>
  </ul>
  </nav>
