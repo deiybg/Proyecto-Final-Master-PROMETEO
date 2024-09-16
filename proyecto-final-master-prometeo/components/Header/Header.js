@@ -1,5 +1,6 @@
 import './Header.css'
-import Footer from '../Footer/Footer';
+
+
 
 
 const template = ()=>{
@@ -42,13 +43,14 @@ const Header = ()=>{
    const cerrar = header.querySelector("#cerrar");
    const nav = header.querySelector("#nav");
 
+
    abrir.addEventListener("click", () => {
        nav.classList.add("visible");
-
    });
 
    cerrar.addEventListener("click", () => {
        nav.classList.remove("visible");
+       
    });
 
    document.addEventListener("click", (event) => {

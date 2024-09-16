@@ -123,7 +123,7 @@ header {
     opacity: 0;
     visibility: hidden;
     height: 100vh;
-    width: max-content;
+    width: 50vw;
     z-index: 1000;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
   }
@@ -140,5 +140,16 @@ header {
 
   .nav-ul li a {
     transition: all 0.3s ease;
+  }
+
+  .divFooterNav{
+    position: absolute;
+    bottom: 0;
+    padding: var(--global-padding);
+  }
+
+  .divFooterNav p{
+    font-weight: 700;
+    color: var(--secundary-color-text);
   }
 }

@@ -87,7 +87,7 @@ form.addEventListener("submit", async (event)=>{
         const infoFood = document.querySelector("#food").value.trim();
         
         const englishKeyword = await traductorKeyWords(infoFood);
-        
+            
             const result = await dataNutritional(infoQuantity, infoUnit, englishKeyword);
             console.log('Resultado de la búsqueda:', result);
             
@@ -125,6 +125,7 @@ form.addEventListener("submit", async (event)=>{
             
 })
 };
+
 
 
 

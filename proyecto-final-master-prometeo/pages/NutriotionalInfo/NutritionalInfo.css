@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  padding: var(--global-padding-short);
   
 }
 .containerNutritionForm{
@@ -10,6 +11,7 @@
   width: 100%;
   align-items:center;
   margin-top: -10px;
+  padding: var(--global-padding-short);
 }
 .containerNutritionForm  legend{
   text-align: center;

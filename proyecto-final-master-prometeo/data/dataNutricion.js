@@ -7,7 +7,7 @@ try {
     const totalNutrientsKcal = dataJson.totalNutrientsKCal; // total de macros expresados en kcal
     const totalNutrients = dataJson.totalNutrients; // macronutrientes expresados en g y micronutrientes expresados en mg
     const totalNutrientsDaily = dataJson.totalDaily; // total de todos los nutrienes expresados en % con la relacion a los requerimientos diarios
-    const dietLabels = dataJson.dietLabels;
+    
     
     
     

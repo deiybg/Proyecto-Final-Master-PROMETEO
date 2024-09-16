@@ -52,6 +52,6 @@ li {
 
 main {
   margin-top: 10vh;
-  padding: var(--global-padding);
+  
   min-height: 80vh;
 }
