@@ -12,6 +12,8 @@
   align-items:center;
   margin-top: -10px;
   padding: var(--global-padding-short);
+  
+  
 }
 .containerNutritionForm  legend{
   text-align: center;
@@ -25,49 +27,47 @@
   border: 1px black dotted;
   border-radius: 8px;
   margin: var(--global-margin-short);
+  
 }
 
 .containerForm > select{
-  width: 100px;
-  height: 40px;
+  width: min-content;
   margin: 0;
   padding: 0;
 }
 #quantity, #unit{
   text-align: center;
   text-align-last: center;
-  margin-left: -40px;
+  
 }
 .containerForm{
-  flex: 1 1 30%; 
-  max-width: 30%; 
+  flex: 1 1 40%; 
+  max-width: 40%; 
   box-sizing: border-box;
   display: flex;
   height: auto;
   align-items: center;
   justify-content: space-evenly;
-  gap: var(--global-gap);
-  
+
 }
 .containerButton{
-  flex: 1 1 70%; 
-  max-width: 70%; 
-  box-sizing:border-box;
+  flex: 1 1 60%; 
+  max-width: 60%; 
   display: flex;
   height: auto;
   align-items: center;
-  gap: var(--global-gap-short);
   justify-content: center;
-  margin: 0;
+  gap: var(--global-gap-short);
 }
 #food{
-  min-width: 70%;
+  min-width: 60%;
   height: 30px;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
   padding: var(--global-padding-short);
   border: none;
   margin: 0;
+
 }
 #food::placeholder{
   padding: var(--global-padding-short);
@@ -93,6 +93,8 @@
   cursor: pointer;
   transition: 0.5s all ease-out;
   
+  
+  
 }
 
 #btnSearchFood:hover{
@@ -104,6 +106,8 @@
   width: 100%;
   display: flex;
   padding: var(--global-padding-short);
+  
+  
  
   
   
@@ -174,9 +178,9 @@
   }
   #food{
     min-width: 60%;
-    height: 15px;
+    height: 25px;
   }
   #btnSearchFood{
-    height: 15px;
+    height: 25px;
   }
 }
