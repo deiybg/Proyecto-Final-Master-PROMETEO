@@ -28,7 +28,7 @@ export const recetas = {
             "Lava bien los ingredientes para evitar contaminación cruzada."
         ],
         trucoChef: "Si dejas reposar la ensalada en la nevera por 30 minutos, los sabores se intensificarán.",
-        urlImage: "https://www.example.com/imagen-ensalada-mediterranea.jpg",
+        urlImage: "/assets/empanadasArgentinas.jpg",
         infoNutricional: {
             totalCalorias: 400, // por ración
             grasas: {
@@ -54,8 +54,9 @@ export const recetas = {
             sal: 1.5, // en gramos
         },
         fechaElaboracion: "12 de Septiembre de 2024",
-        alergenos: ["Lácteos (queso feta)"],
-        labels: ["Sin TACC", "Preparación rápida", "Vegetariano"]
+        alergenos: ["Lácteos"],
+        labels: ["Sin Gluten", "Preparación rápida", "Vegetariano"],
+        destacados : "si",
     },
     pastaAlfredoPollo: {
         nombrePlato: "Pasta Alfredo con Pollo",
@@ -86,7 +87,7 @@ export const recetas = {
             "Cuidado al cocinar la salsa, no dejar que se queme."
         ],
         trucoChef: "Agrega un chorrito de vino blanco a la salsa Alfredo para un toque gourmet.",
-        urlImage: "https://www.example.com/imagen-pasta-alfredo.jpg",
+        urlImage: "/assets/mugCake.jpg",
         infoNutricional: {
             totalCalorias: 700, // por ración
             grasas: {
@@ -113,7 +114,8 @@ export const recetas = {
         },
         fechaElaboracion: "12 de Septiembre de 2024",
         alergenos: ["Lácteos (crema y queso parmesano)"],
-        labels: ["Preparación rápida", "Sin gluten"]
+        labels: ["Preparación rápida", "Sin gluten"],
+        destacados : "si",
     },
     sopaTomateAlbahaca: {
         nombrePlato: "Sopa de Tomate y Albahaca",
@@ -144,7 +146,7 @@ export const recetas = {
             "Cuidado al triturar la sopa, dejar que enfríe ligeramente."
         ],
         trucoChef: "Si quieres una textura aún más suave, cuela la sopa después de triturarla.",
-        urlImage: "https://www.example.com/imagen-sopa-tomate.jpg",
+        urlImage: "/assets/galletasChocolate.jpg",
         infoNutricional: {
             totalCalorias: 150, // por ración
             grasas: {
@@ -171,6 +173,7 @@ export const recetas = {
         },
         fechaElaboracion: "12 de Septiembre de 2024",
         alergenos: ["Ninguno"],
-        labels: ["Sin gluten", "Vegano", "Preparación rápida"]
+        labels: ["Sin gluten", "Vegano", "Preparación rápida"],
+        destacados : "si",
     }
 };

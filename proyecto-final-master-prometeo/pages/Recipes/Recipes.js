@@ -1,17 +1,15 @@
 import './Recipes.css';
 import { cleanPage } from '../../Utils/CleanPage';
 import { recetas } from '../../data/dataRecipes';
+import { printRecipesCards } from '../../components/RecipesCard/RecipesCard';
 
 
 export const Recipes =()=>{
     const main = document.querySelector("main");
     cleanPage(main); 
-    const divBackgroundImage = document.createElement("div");
-    divBackgroundImage.id = "divBackgroundImage";
-    
-    const divContainerForm = document.createElement("div");
-    divContainerForm.classList.add("containerInputSearchFood");
-    divContainerForm.innerHTML =`
+    main.innerHTML= `
+    <div id="divBackgroundImage">
+    <div class="containerInputSearchFood">
     <h1 class="title-home title-home-recipes">Heallthy</h1>
     <p class="p-recipes">¿Qué cocinamos hoy?</p>
     <div class="container-input-button-recipes">
@@ -20,11 +18,17 @@ export const Recipes =()=>{
     <button type="submit" class="btnSearchFoodRecipes" id="btnSearchFoodRecipes"><i class="bi bi-search" aria-hidden="true"></i></button>
     </form>
     </div>
-    
+    </div>
+    </div>
+    <div class="containerDestacados">
+    <h3 class="titleDestacados">Recetas destacadas del día</h3>
+    <div id="CardsDestacados" class="containerCardsDestacados"></div>
+    </div>
     `;
-    divBackgroundImage.appendChild(divContainerForm);
-    
-    main.append(divBackgroundImage);
-    
-    
+  
+    // funcion que me pinta las recetas destacadas
+    const divcontainerCardsDestacados = document.querySelector(".containerCardsDestacados");
+    printRecipesCards(recetas,divcontainerCardsDestacados)
+ 
 }
+

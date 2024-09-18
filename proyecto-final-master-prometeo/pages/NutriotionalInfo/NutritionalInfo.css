@@ -157,7 +157,7 @@
 }
 
 #loading img {
-  width: 50px; /* Ajusta el tamaño según lo que necesites */
+  width: 50px; 
   height: 50px;
 }
 
@@ -172,12 +172,13 @@
   }
   .containerButton, .containerForm{
     min-width: 100%;
+    max-width: 100%;
   }
   .containerButton{
     padding: var(--global-padding-short);
   }
   #food{
-    min-width: 60%;
+    min-width: 50%;
     height: 25px;
   }
   #btnSearchFood{
