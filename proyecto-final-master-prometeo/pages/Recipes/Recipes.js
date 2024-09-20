@@ -1,7 +1,7 @@
 import './Recipes.css';
 import { cleanPage } from '../../Utils/CleanPage';
 import { recetas } from '../../data/dataRecipes';
-import { printRecipesCards } from '../../components/RecipesCard/RecipesCard';
+import { printRecipesCards, printRecipesCardsModal } from '../../components/RecipesCard/RecipesCard';
 
 
 export const Recipes =()=>{
@@ -24,11 +24,16 @@ export const Recipes =()=>{
     <h3 class="titleDestacados">Recetas destacadas del día</h3>
     <div id="CardsDestacados" class="containerCardsDestacados"></div>
     </div>
+
+    <div id="recipeModal">
+    <div class="modalContent"></div>
+    </div>
     `;
   
     // funcion que me pinta las recetas destacadas
     const divcontainerCardsDestacados = document.querySelector(".containerCardsDestacados");
-    printRecipesCards(recetas,divcontainerCardsDestacados)
+    printRecipesCards(recetas,divcontainerCardsDestacados);
+  
  
 }
 

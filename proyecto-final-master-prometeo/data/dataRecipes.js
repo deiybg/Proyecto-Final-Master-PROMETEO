@@ -1,10 +1,11 @@
 export const recetas = {
     ensaladaMediterranea: {
         nombrePlato: "Ensalada Mediterránea de Garbanzos",
-        tiempoElaboracion: "15 minutos",
-        tiempoCoccion: 10, // Número en lugar de texto
+        // Importante  saber el tiempo de preparacion ya que segun sea el tiempo se pintaran 1,2 o 3 icons de idea para indicarle al cliente de manera visual la complejidad del plato
+        tiempoElaboracion: 50,
+        tiempoCoccion: 10, 
         cantidadRaciones: 4,
-        complejidad: "Fácil",
+        complejidad: "Dificil",
         ingredientes: [
             "200g de garbanzos cocidos",
             "100g de queso feta",
@@ -55,12 +56,12 @@ export const recetas = {
         },
         fechaElaboracion: "12 de Septiembre de 2024",
         alergenos: ["Lácteos"],
-        labels: ["Sin Gluten", "Preparación rápida", "Vegetariano"],
+        labels: ["Sin Gluten", "Sin Carne"],
         destacados : "si",
     },
     pastaAlfredoPollo: {
         nombrePlato: "Pasta Alfredo con Pollo",
-        tiempoElaboracion: "20 minutos",
+        tiempoElaboracion: 30,
         tiempoCoccion: 15, // Número en lugar de texto
         cantidadRaciones: 4,
         complejidad: "Intermedia",
@@ -114,12 +115,12 @@ export const recetas = {
         },
         fechaElaboracion: "12 de Septiembre de 2024",
         alergenos: ["Lácteos (crema y queso parmesano)"],
-        labels: ["Preparación rápida", "Sin gluten"],
+        labels: ["Sin Crustaseos", "Sin gluten","Sin Mariscos","Sin Soja"],
         destacados : "si",
     },
     sopaTomateAlbahaca: {
         nombrePlato: "Sopa de Tomate y Albahaca",
-        tiempoElaboracion: "10 minutos",
+        tiempoElaboracion: 10,
         tiempoCoccion: 20, // Número en lugar de texto
         cantidadRaciones: 4,
         complejidad: "Fácil",
@@ -173,7 +174,7 @@ export const recetas = {
         },
         fechaElaboracion: "12 de Septiembre de 2024",
         alergenos: ["Ninguno"],
-        labels: ["Sin gluten", "Vegano", "Preparación rápida"],
+        labels: ["Sin gluten", "Sin carne", "Sin Azucar","Sin Sesamo","Sin Huevos"],
         destacados : "si",
     }
 };
