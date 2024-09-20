@@ -62,12 +62,26 @@ const errorMessage = document.querySelector("#error-message");
 const resultsContainer = document.querySelector("#results-container");
 const resumenContainer = document.querySelector("#resumen-container");
 
+// FUNCION PARA MOSTRAR MIENTRAS RESPONDE EL SERVIDOR UN GIF DE CARGANDO, SE USA EL TOOGLE PARA QUITAR Y COLOCAR LA CLASE QUE LA MUESTRA O LA OCULTA
 const toggleErrorMessage = () => {
   errorMessage.classList.toggle("error-messageHidden");
   errorMessage.classList.toggle("error-message");
 };
+// FUNCION QUE PINTA POR DEFECTO UN ALIMENTO EN LA PAGES INFOR NUTRICIONAL
+const printDefaultDataNutritional =  async (quantity,unit,food) =>{
+  const result = await dataNutritional("100", "gram", "pineapple");
+  console.log(dataNutritional);
+  
+            printNutritionalInfo(result,"100", "gram", "pepino");
+            printBreakdownCalories(result);
+            printDietLabels(result);
+            printNutritionalSummary(result);
+            printNutritionalMicronutrients(result);
+            printIDR_Info(result);
+}
+printDefaultDataNutritional();
 
-
+// EVENTO QUE LANZA UNA FUNCION ASYNC PARA QUE CUANDO LA API RESPONDA, ME PINTE LAS CARTAS CON LA INFO
 form.addEventListener("submit", async (event)=>{
     
     event.preventDefault();
@@ -89,26 +103,15 @@ form.addEventListener("submit", async (event)=>{
         const englishKeyword = await traductorKeyWords(infoFood);
             
             const result = await dataNutritional(infoQuantity, infoUnit, englishKeyword);
-            console.log('Resultado de la búsqueda:', result);
-            
-
-           
             printNutritionalInfo(result,infoQuantity,nameUnit,infoFood);
-            
-            
-            
             printBreakdownCalories(result);
             printDietLabels(result);
-
-
             printNutritionalSummary(result);
-
             printNutritionalMicronutrients(result);
             printIDR_Info(result);
-           
-
             document.querySelector("#food").value = "";
-            
+
+            // EN CASO DE ERROR , DE QUE NO ENCUENTRE EL ALIMENTO A CONSULTAR ME LIMPIA EL HTML Y ME MUESTRA EN UN CONTENDER UN MESAJE
     } catch (error) {
       toggleErrorMessage();
       errorMessage.textContent = "No tenemos registros del alimento a consultar, por favor ingrese otro.";
@@ -119,10 +122,7 @@ form.addEventListener("submit", async (event)=>{
       loading.classList.add("loading-hidden");
       btnSearchFood.disabled = false;  
       
-  }
-   
-            
-            
+  }           
 })
 };
 
