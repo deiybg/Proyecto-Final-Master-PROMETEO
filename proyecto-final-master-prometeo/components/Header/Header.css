@@ -126,11 +126,15 @@ header {
     width: 50vw;
     z-index: 1000;
     box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.5);
+    transform: translateX(100%); 
+    transition: transform 0.8s ease, opacity 0.8s ease;
   }
 
   .nav.visible {
     visibility: visible;
     opacity: 1;
+    transform: translateX(0); 
+    
   }
 
   .nav-ul {
@@ -142,14 +146,4 @@ header {
     transition: all 0.3s ease;
   }
 
-  .divFooterNav{
-    position: absolute;
-    bottom: 0;
-    padding: var(--global-padding);
-  }
-
-  .divFooterNav p{
-    font-weight: 700;
-    color: var(--secundary-color-text);
-  }
 }

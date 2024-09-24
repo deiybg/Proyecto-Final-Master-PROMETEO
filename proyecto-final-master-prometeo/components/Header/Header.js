@@ -46,16 +46,20 @@ const Header = ()=>{
 
    abrir.addEventListener("click", () => {
        nav.classList.add("visible");
+       document.body.classList.add("modal-active");
    });
 
    cerrar.addEventListener("click", () => {
        nav.classList.remove("visible");
+       document.body.classList.remove("modal-active");
        
    });
 
    document.addEventListener("click", (event) => {
     if (!nav.contains(event.target) && !abrir.contains(event.target)) {
       nav.classList.remove("visible");
+      document.body.classList.remove("modal-active");
+
     }
   });
 }

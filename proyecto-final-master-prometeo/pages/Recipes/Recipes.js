@@ -1,7 +1,7 @@
 import './Recipes.css';
 import { cleanPage } from '../../Utils/CleanPage';
 import { recetas } from '../../data/dataRecipes';
-import { printRecipesCards, printRecipesCardsModal } from '../../components/RecipesCard/RecipesCard';
+import { printRecipesCards } from '../../components/RecipesCard/RecipesCard';
 
 
 export const Recipes =()=>{

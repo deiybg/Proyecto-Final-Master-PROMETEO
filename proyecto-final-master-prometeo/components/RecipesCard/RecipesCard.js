@@ -17,9 +17,7 @@ export const printRecipesCards = (recetas,divcontainerCardsDestacados)=>{
         if(receta.destacados === "si"){
             
             li.innerHTML = `
-            <div class="containerImgZoom">
             <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
-            </div>
             <h4 class="titleDestacadosDescription">Receta destacada</h4>
             <h5 class="recipeName">${receta.nombrePlato}</h5>
             `
@@ -37,8 +35,22 @@ const openModal = (receta) => {
     
     modal.classList.add("show");
     printRecipesCardsModal(receta);
-    printLabelsRecipes(receta,recipeLabels);
+    printLabelsRecipes(receta,recipeLabels); //funcion que pinta las etiquetas
+    printIngredients(receta); //Funcion que pinta los ingredientes
+    printCreationTrickTips(receta); //función que pinta la elaboración y los tips de cada receta
+    insertBtnContent(receta); //funcion que al darle click ak btn Elaboracion, este insertara el contenido de la elaboracion de cada receta
+    
+    const btnCreation = document.querySelector("#btnCreation");
+    const btnTrick = document.querySelector("#btnTrick");
+    const contentBtn = document.querySelector("#contentBtn");
+    btnCreation.addEventListener("click", () => {
+        insertBtnContent(receta);
+    });
     document.body.classList.add("modal-active");
+    btnTrick.addEventListener("click", ()=>{
+        cleanPage(contentBtn);
+        contentBtn.innerHTML =`Hola`
+    })
   };
 //   funcion que cierra la receta quitandole la clase show y la clase modl-active para volver a activar el scroll
   document.addEventListener("click", (event) =>{
@@ -72,9 +84,9 @@ export const printRecipesCardsModal =(receta)=>{
     </div>
     </section>
     <section class="containerIngrCreationTrickTipsinfoNutritional">
-    <div class=containerIngredients>
+    <div class="containerIngredients">
     </div>
-    <div class="containerCreationTrickTips">
+    <div class="containerCreationTrick">
     </div>
     <div class="containerInfoNutritionalRecipes">
     </div>
@@ -84,13 +96,7 @@ export const printRecipesCardsModal =(receta)=>{
     const printImgIconsIdea = (receta) =>{
         const imgIconIdea = document.querySelector("#imgIconIdea");
         cleanPage(imgIconIdea);
-        let numIdeas = 1;
-        if(receta.tiempoElaboracion > 45){
-            numIdeas = 3;
-        }else if(receta.tiempoElaboracion >=30 && receta.tiempoElaboracion <=45){
-            numIdeas =2;
-        }
-
+        let numIdeas = receta.tiempoElaboracion > 45 ? 3 : receta.tiempoElaboracion >= 30 ? 2 : 1;
         for(let i = 0; i < numIdeas; i++){
             const img = document.createElement("img");
             img.classList.add("imgIcons");
@@ -124,4 +130,51 @@ const printLabelsRecipes =(receta,recipeLabels) =>{
     containerLabelsRecipe.appendChild(ul);
     
 }
-  
+
+//   Función que imprimirá los ingredientes de la receta  lo mostrara en las card de cada receta
+const printIngredients = (receta)=>{
+    const containerIngredients = document.querySelector(".containerIngredients");
+    containerIngredients.innerHTML = `
+    <h3 class="titleIngredients">Ingredientes</h3>
+    `
+    const ul = document.createElement("ul");
+    ul.id = "ulContainerIngredients";
+    for (const ingredient of receta.ingredientes) {
+        const li = document.createElement("li");
+        li.classList.add("liIngredients");
+        li.textContent = ingredient;
+        ul.appendChild(li);
+    }
+    containerIngredients.appendChild(ul);
+}
+
+const printCreationTrickTips = (receta) =>{
+const containerCreationTrickTips = document.querySelector(".containerCreationTrick");
+containerCreationTrickTips.innerHTML= `
+<div class="containerBtnCreationTrick">
+<button id="btnCreation">Elaboración</button>
+<button id="btnTrick">Truco del chef</button>
+</div>
+<div id="contentBtn">
+</div>
+
+`
+};
+
+const insertBtnContent = (receta)=>{
+        cleanPage(contentBtn);
+        const ol = document.createElement("ol");
+        ol.id = "olBtnContent";
+        for (const elaboracion of receta.elaboracion) {
+            const li = document.createElement("li");
+            li.classList.add("liContentBtn");
+            li.textContent = elaboracion;
+            ol.appendChild(li);
+        }
+        contentBtn.appendChild(ol);
+        
+    }
+
+
+
+   
