@@ -23,6 +23,16 @@ color: rgb(60, 180, 75);
 .liRecipesCards:hover h5{
     color: var(--secundary-color-text);
 }
+
+.bi-patch-exclamation{
+    font-size: 50px;
+    color: var(--bg-color);
+    font-weight: 900;
+}
+
+.animate__flash{
+    animation-duration: 2s;
+}
 .imgRecipesDestacadas{
     width: 100%;
     height: auto;
@@ -160,7 +170,7 @@ body.modal-active {
 .titleIngredients{
     color: var(--secundary-color-text);
     font-weight: 900;
-    margin: var(--global-margin-short) auto;
+    margin: var(--global-margin) auto;
 }
 #ulContainerIngredients, #olBtnContent{
     display: flex;
@@ -198,6 +208,7 @@ body.modal-active {
     cursor: pointer;
     background-color: var(--secundary-color-text);
     color: var(--bg-color);
+    font-weight: 700;
     border: none;
     padding: var(--global-padding-short);
     transition: 0.5s all ease-in-out;
@@ -217,7 +228,11 @@ body.modal-active {
     display: none;
 }
 #contentBtn{
-border: 1.5px var(--terciary-color-text) solid;}
+border: 1.5px var(--secundary-color-text) solid;
+display: flex;
+min-height: 380px;
+max-height: max-content;
+}
 
 .containerInfoNutritionalRecipes{
     flex: 1 1 35%;
@@ -226,6 +241,26 @@ border: 1.5px var(--terciary-color-text) solid;}
 }
 
 
+/* Aca maqueto el contendor del contenido de btnTrick y su texto */
+
+.divContainerTrickToChef{
+    background-color: var(--secundary-color-text);
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    height: 100%;
+    border: 1px white solid;
+    border-radius: 15px;
+    flex-direction: column;
+    padding: 40px;
+}
+
+.titleTricktoChef{
+    color: var(--bg-color);
+    margin-top: var(--global-margin);
+
+}
 /* Aca empiezan las medias query */
 @media (max-width: 768px){
     .containerImgRecipesDestacadas, .containerInfoRecipesModal{

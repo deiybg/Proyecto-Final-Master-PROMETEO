@@ -4,30 +4,31 @@ import { recetas } from '../../data/dataRecipes';
 import { recipeLabels } from '../../data/dataLabels';
 
 // Funcion que receorre el array con un forEach la img y titulo de cada receta para luego pintarla por defecto
-export const printRecipesCards = (recetas,divcontainerCardsDestacados)=>{
-    cleanPage(divcontainerCardsDestacados)
+export const printRecipesCards = (recetas, divcontainerCardsDestacados) => {
+    cleanPage(divcontainerCardsDestacados);
     const ul = document.createElement("ul");
     ul.classList.add("ulRecipesCards");
 
-    Object.values(recetas).forEach(receta => {
+    // Filtrar las recetas destacadas y mapearlas
+    const recetasDestacadas = Object.values(recetas).filter(receta => receta.destacados === "si");
+    
+    recetasDestacadas.map(receta => {
+
         const li = document.createElement("li");
         li.classList.add("liRecipesCards");
-        li.onclick = ()=> openModal(receta);
-        // condicional para verificar si la receta es destacada o no, y se pintara en caso de ser "si"
-        if(receta.destacados === "si"){
-            
-            li.innerHTML = `
+        li.onclick = () => openModal(receta);
+
+        li.innerHTML = `
             <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
             <h4 class="titleDestacadosDescription">Receta destacada</h4>
             <h5 class="recipeName">${receta.nombrePlato}</h5>
-            `
-        }else{
-        }
+        `;
         ul.appendChild(li);
-        
     });
+
     divcontainerCardsDestacados.appendChild(ul);
 }
+
 // Funcion que pinta la info de la receta en el modalcuando se consulta una receta
 const openModal = (receta) => {
     
@@ -38,18 +39,18 @@ const openModal = (receta) => {
     printLabelsRecipes(receta,recipeLabels); //funcion que pinta las etiquetas
     printIngredients(receta); //Funcion que pinta los ingredientes
     printCreationTrickTips(receta); //función que pinta la elaboración y los tips de cada receta
-    insertBtnContent(receta); //funcion que al darle click ak btn Elaboracion, este insertara el contenido de la elaboracion de cada receta
+    printBtnCreation(receta); //funcion que al darle click a btn Elaboracion, este insertara el contenido de la elaboracion de cada receta
     
     const btnCreation = document.querySelector("#btnCreation");
     const btnTrick = document.querySelector("#btnTrick");
     const contentBtn = document.querySelector("#contentBtn");
     btnCreation.addEventListener("click", () => {
-        insertBtnContent(receta);
+        printBtnCreation(receta);
     });
     document.body.classList.add("modal-active");
     btnTrick.addEventListener("click", ()=>{
-        cleanPage(contentBtn);
-        contentBtn.innerHTML =`Hola`
+        printBtnTrick(receta);
+        
     })
   };
 //   funcion que cierra la receta quitandole la clase show y la clase modl-active para volver a activar el scroll
@@ -160,8 +161,8 @@ containerCreationTrickTips.innerHTML= `
 
 `
 };
-
-const insertBtnContent = (receta)=>{
+//Esta funcion imprime cuando le doy click al btnCreation los pasos para le eleboracion de la receta
+const printBtnCreation = (receta)=>{
         cleanPage(contentBtn);
         const ol = document.createElement("ol");
         ol.id = "olBtnContent";
@@ -174,7 +175,16 @@ const insertBtnContent = (receta)=>{
         contentBtn.appendChild(ol);
         
     }
-
-
+//funcion que me imprimira cuando presione el btnTrick, los trucos o recomendacion para la elaboracion de lka receta
+    const printBtnTrick = (receta)=>{
+    cleanPage(contentBtn);
+    contentBtn.innerHTML = `
+    <div class="divContainerTrickToChef">
+    <span id="exclamation" class="animate__animated animate__flash"><i class="bi bi-patch-exclamation"></i></span>
+    <h3 class="titleTricktoChef">
+    " ${receta.trucoChef} "</h3>
+    </div>
+    `
+    }
 
    

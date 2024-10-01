@@ -277,7 +277,7 @@ export const printNutritionalMicronutrients =(result) =>{
     
     
 }
-
+//Funcion que pinta segun el alimento consultado las etiquetas dieteticas
 export const printDietLabels = (result) =>{
 
     const container = document.querySelector("#results-container");
