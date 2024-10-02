@@ -1,14 +1,20 @@
-import './NutritionalInfo.css';
-import { cleanPage } from '../../Utils/CleanPage';
-import { dataNutritional } from '../../data/dataNutricion';
-import { traductorKeyWords } from '../../Utils/Traductor';
-import { printNutritionalInfo, printIDR_Info, printBreakdownCalories, printNutritionalSummary, printNutritionalMicronutrients, printDietLabels } from '../../components/NutritionalCard/NutritionalCard';
+import "./NutritionalInfo.css";
+import { cleanPage } from "../../Utils/CleanPage";
+import { dataNutritional } from "../../data/dataNutricion";
+import { traductorKeyWords } from "../../Utils/Traductor";
+import {
+  printNutritionalInfo,
+  printIDR_Info,
+  printBreakdownCalories,
+  printNutritionalSummary,
+  printNutritionalMicronutrients,
+  printDietLabels,
+} from "../../components/NutritionalCard/NutritionalCard";
 
-
-export const NutritionalInfo = ()=>{
-    const main = document.querySelector("main");
-    cleanPage(main);
-    main.innerHTML = `
+export const NutritionalInfo = () => {
+  const main = document.querySelector("main");
+  cleanPage(main);
+  main.innerHTML = `
     <div class="containerNutritionForm">
     <fieldset>
      <legend> Buscar Alimento</legend>
@@ -52,83 +58,78 @@ export const NutritionalInfo = ()=>{
 <p id="error-message" class="error-messageHidden"></p>
 </div>
 
-`
+`;
 
+  const form = document.querySelector("#nutrition-form");
+  const loading = document.querySelector("#loading");
+  const btnSearchFood = document.querySelector("#btnSearchFood");
+  const errorMessage = document.querySelector("#error-message");
+  const resultsContainer = document.querySelector("#results-container");
+  const resumenContainer = document.querySelector("#resumen-container");
 
-const form = document.querySelector("#nutrition-form");
-const loading = document.querySelector("#loading");
-const btnSearchFood = document.querySelector("#btnSearchFood");
-const errorMessage = document.querySelector("#error-message");
-const resultsContainer = document.querySelector("#results-container");
-const resumenContainer = document.querySelector("#resumen-container");
+  // FUNCION PARA MOSTRAR MIENTRAS RESPONDE EL SERVIDOR UN GIF DE CARGANDO, SE USA EL TOOGLE PARA QUITAR Y COLOCAR LA CLASE QUE LA MUESTRA O LA OCULTA
+  const toggleErrorMessage = () => {
+    errorMessage.classList.toggle("error-messageHidden");
+    errorMessage.classList.toggle("error-message");
+  };
+  // FUNCION QUE PINTA POR DEFECTO UN ALIMENTO EN LA PAGES INFOR NUTRICIONAL
+  const printDefaultDataNutritional = async (quantity, unit, food) => {
+    const result = await dataNutritional("100", "gram", "pineapple");
+    console.log(dataNutritional);
 
-// FUNCION PARA MOSTRAR MIENTRAS RESPONDE EL SERVIDOR UN GIF DE CARGANDO, SE USA EL TOOGLE PARA QUITAR Y COLOCAR LA CLASE QUE LA MUESTRA O LA OCULTA
-const toggleErrorMessage = () => {
-  errorMessage.classList.toggle("error-messageHidden");
-  errorMessage.classList.toggle("error-message");
-};
-// FUNCION QUE PINTA POR DEFECTO UN ALIMENTO EN LA PAGES INFOR NUTRICIONAL
-const printDefaultDataNutritional =  async (quantity,unit,food) =>{
-  const result = await dataNutritional("100", "gram", "pineapple");
-  console.log(dataNutritional);
-  
-            printNutritionalInfo(result,"100", "gram", "pepino");
-            printBreakdownCalories(result);
-            printDietLabels(result);
-            printNutritionalSummary(result);
-            printNutritionalMicronutrients(result);
-            printIDR_Info(result);
-}
-printDefaultDataNutritional();
+    printNutritionalInfo(result, "100", "gram", "pepino");
+    printBreakdownCalories(result);
+    printDietLabels(result);
+    printNutritionalSummary(result);
+    printNutritionalMicronutrients(result);
+    printIDR_Info(result);
+  };
+  printDefaultDataNutritional();
 
-// EVENTO QUE LANZA UNA FUNCION ASYNC PARA QUE CUANDO LA API RESPONDA, ME PINTE LAS CARTAS CON LA INFO
-form.addEventListener("submit", async (event)=>{
-    
+  // EVENTO QUE LANZA UNA FUNCION ASYNC PARA QUE CUANDO LA API RESPONDA, ME PINTE LAS CARTAS CON LA INFO
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     loading.classList.remove("loading-hidden");
     loading.classList.add("loading-visible");
-        btnSearchFood.disabled = true;  // Deshabilitar el botón para evitar múltiples envíos
-        errorMessage.textContent = "";  // Limpiar mensajes de error
-        errorMessage.classList.add("error-messageHidden"); 
-        cleanPage(resultsContainer);
-        cleanPage(resumenContainer);
-        
+    btnSearchFood.disabled = true; // Deshabilitar el botón para evitar múltiples envíos
+    errorMessage.textContent = ""; // Limpiar mensajes de error
+    errorMessage.classList.add("error-messageHidden");
+    cleanPage(resultsContainer);
+    cleanPage(resumenContainer);
 
     try {
-        const infoQuantity = document.querySelector("#quantity").value;
-        const infoUnit = document.querySelector("#unit").value;
-        const nameUnit = document.querySelector("#unit").selectedOptions[0].textContent;
-        const infoFood = document.querySelector("#food").value.trim();
-        
-        const englishKeyword = await traductorKeyWords(infoFood);
-            
-            const result = await dataNutritional(infoQuantity, infoUnit, englishKeyword);
-            printNutritionalInfo(result,infoQuantity,nameUnit,infoFood);
-            printBreakdownCalories(result);
-            printDietLabels(result);
-            printNutritionalSummary(result);
-            printNutritionalMicronutrients(result);
-            printIDR_Info(result);
-            document.querySelector("#food").value = "";
+      const infoQuantity = document.querySelector("#quantity").value;
+      const infoUnit = document.querySelector("#unit").value;
+      const nameUnit =
+        document.querySelector("#unit").selectedOptions[0].textContent;
+      const infoFood = document.querySelector("#food").value.trim();
 
-            // EN CASO DE ERROR , DE QUE NO ENCUENTRE EL ALIMENTO A CONSULTAR ME LIMPIA EL HTML Y ME MUESTRA EN UN CONTENDER UN MESAJE
+      const englishKeyword = await traductorKeyWords(infoFood);
+
+      const result = await dataNutritional(
+        infoQuantity,
+        infoUnit,
+        englishKeyword
+      );
+      printNutritionalInfo(result, infoQuantity, nameUnit, infoFood);
+      printBreakdownCalories(result);
+      printDietLabels(result);
+      printNutritionalSummary(result);
+      printNutritionalMicronutrients(result);
+      printIDR_Info(result);
+      document.querySelector("#food").value = "";
+
+      // EN CASO DE ERROR , DE QUE NO ENCUENTRE EL ALIMENTO A CONSULTAR ME LIMPIA EL HTML Y ME MUESTRA EN UN CONTENDER UN MESAJE
     } catch (error) {
       toggleErrorMessage();
-      errorMessage.textContent = "No tenemos registros del alimento a consultar, por favor ingrese otro.";
+      errorMessage.textContent =
+        "No tenemos registros del alimento a consultar, por favor ingrese otro.";
       errorMessage.classList.remove("error-messageHidden");
       document.querySelector("#food").value = "";
-    }finally {
+    } finally {
       loading.classList.remove("loading-visible");
       loading.classList.add("loading-hidden");
-      btnSearchFood.disabled = false;  
-      
-  }           
-})
+      btnSearchFood.disabled = false;
+    }
+  });
 };
-
-
-
-
-
-
-

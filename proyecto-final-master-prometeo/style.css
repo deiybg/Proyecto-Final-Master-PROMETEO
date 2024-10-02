@@ -9,7 +9,7 @@
   --global-padding-short: 10px;
   --global-padding-large: 40px;
   --global-gap: 20px;
-  --global-gap-short:10px;
+  --global-gap-short: 10px;
   --global-gap-large: 40px;
   --tittle-font-family: "Lobster";
   --global-font-family: "Roboto";
@@ -32,6 +32,7 @@
 
 body {
   background-color: var(--bg-color);
+  overflow-x: hidden;
 }
 
 a {
@@ -53,6 +54,6 @@ ul {
 
 main {
   margin-top: 10vh;
-  
+
   min-height: 80vh;
 }

@@ -1,13 +1,12 @@
-import './Recipes.css';
-import { cleanPage } from '../../Utils/CleanPage';
-import { recetas } from '../../data/dataRecipes';
-import { printRecipesCards } from '../../components/RecipesCard/RecipesCard';
+import "./Recipes.css";
+import { cleanPage } from "../../Utils/CleanPage";
+import { recetas } from "../../data/dataRecipes";
+import { printRecipesCards } from "../../components/RecipesCard/RecipesCard";
 
-
-export const Recipes =()=>{
-    const main = document.querySelector("main");
-    cleanPage(main); 
-    main.innerHTML= `
+export const Recipes = () => {
+  const main = document.querySelector("main");
+  cleanPage(main);
+  main.innerHTML = `
     <div id="divBackgroundImage">
     <div class="containerInputSearchFood">
     <h1 class="title-home title-home-recipes">Heallthy</h1>
@@ -29,11 +28,10 @@ export const Recipes =()=>{
     <div class="modalContent"></div>
     </div>
     `;
-  
-    // funcion que me pinta las recetas destacadas
-    const divcontainerCardsDestacados = document.querySelector(".containerCardsDestacados");
-    printRecipesCards(recetas,divcontainerCardsDestacados);
-  
- 
-}
 
+  // funcion que me pinta las recetas destacadas
+  const divcontainerCardsDestacados = document.querySelector(
+    ".containerCardsDestacados"
+  );
+  printRecipesCards(recetas, divcontainerCardsDestacados);
+};

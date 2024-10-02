@@ -1,302 +1,357 @@
 /* ACA SE MAQUETA LA PRIMERA SECTION DEL MODAL, DONDE SE ENCUENTRA LA IMG, EL TITLE, ALGUNOS DATOS DE PREPARACION Y LOS LABELS DE ALERGENOS */
 
-
-.ulRecipesCards{
-    width: 85%;
-    height: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    grid-template-rows: auto;
-    justify-content: center;
-    gap: 60px;
-   justify-items: center;
+.ulRecipesCards {
+  width: 85%;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  justify-content: center;
+  gap: 60px;
+  justify-items: center;
 }
-.liRecipesCards{
-    cursor: pointer;
-    width: 360px;
-    height: auto;
-
+.liRecipesCards {
+  cursor: pointer;
+  width: 360px;
+  height: auto;
 }
-.liRecipesCards:hover h4{
-color: rgb(60, 180, 75);
+.liRecipesCards:hover h4 {
+  color: rgb(60, 180, 75);
 }
-.liRecipesCards:hover h5{
-    color: var(--secundary-color-text);
+.liRecipesCards:hover h5 {
+  color: var(--secundary-color-text);
 }
 
-.bi-patch-exclamation{
-    font-size: 50px;
-    color: var(--bg-color);
-    font-weight: 900;
+.imgRecipesDestacadas {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 6px;
 }
 
-.animate__flash{
-    animation-duration: 2s;
-}
-.imgRecipesDestacadas{
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 6px;
+.imgRecipesDestacadas:hover {
+  filter: brightness(1.1);
 }
 
-.imgRecipesDestacadas:hover{
-    filter: brightness(1.1);
+.titleDestacadosDescription {
+  font-size: 1.3rem;
+  color: var(--secundary-color-text);
+  transition: 0.2s ease-in-out;
 }
-    
-.titleDestacadosDescription{
-    font-size: 1.3rem;
-    color: var(--secundary-color-text);
-    transition: 0.2s ease-in-out;
+.recipeName {
+  color: var(--terciary-color-text);
+  font-size: 1rem;
 }
-.recipeName{
-    color: var(--terciary-color-text);
-    font-size: 1rem;
-
+.containerInfo .textModal,
+.textModal {
+  color: var(--bg-color);
 }
-.containerInfo .textModal, .textModal{
-    color: var(--bg-color);
+.textModal span {
+  margin-right: 5px;
 }
-.textModal span{
-    margin-right: 5px;
-}
-.textModal{
-    width: 100%;
+.textModal {
+  width: 100%;
 }
 
-.containerImgInfoRecipes{
-    display: flex;
-    height: 35vh;
-    flex-wrap: wrap;
+.containerImgInfoRecipes {
+  display: flex;
+  height: 35vh;
+  flex-wrap: wrap;
 }
-.imgRecipesDestacadas{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.imgRecipesDestacadas {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-.recipeNameModal{
-    font-size: 1.8rem;
-    height: 15%;
+.recipeNameModal {
+  font-size: 1.8rem;
+  height: 15%;
 }
-.imgIcons{
-    filter: brightness(0) invert(1);
-    width: 25px;
-    height: 25px;
-    vertical-align: middle;
+.imgIcons {
+  filter: brightness(0) invert(1);
+  width: 25px;
+  height: 25px;
+  vertical-align: middle;
 }
-.containerInfo{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    align-items: center;
-    border-bottom: 1px solid white;
-    height: 40%;
-    
+.containerInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  border-bottom: 1px solid white;
+  height: 40%;
 }
-.containerInfo p{
-    display: flex;
-    align-items: center;
-    color: var(--secundary-color-text);
-    font-weight: 700;
-    justify-self: center;
-    height: 50px;
-    font-size: 0.9rem;
-    
-    
+.containerInfo p {
+  display: flex;
+  align-items: center;
+  color: var(--secundary-color-text);
+  font-weight: 700;
+  justify-self: center;
+  height: 50px;
+  font-size: 0.9rem;
 }
-.containerImgRecipesDestacadas{
-flex: 1 1 40%;
-height: 100%;
+.containerImgRecipesDestacadas {
+  flex: 1 1 40%;
+  height: 100%;
 }
 
-.containerInfoRecipesModal{
-    padding: var(--global-padding);
-    flex: 1 1 60%;
-    background-color: var(--secundary-color-text);
-    height: 100%;
+.containerInfoRecipesModal {
+  padding: var(--global-padding);
+  flex: 1 1 60%;
+  background-color: var(--secundary-color-text);
+  height: 100%;
 }
 
 /* Maquetar la seccion de Alergenos */
-#containerLabelsRecipe{
-    display: flex;
-    justify-content: center;
-    height: 45%;
+#containerLabelsRecipe {
+  display: flex;
+  justify-content: center;
+  height: 45%;
 }
-.ulRecipesLabels{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+.ulRecipesLabels {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
-.licontainerRecipesLabel{
-    display: flex;
-    width: 90px;
-    height: 90px;
-    gap: var(--global-gap-short);
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bg-color);
-    border-radius: 12px;
-    border: 1px white solid;
+.licontainerRecipesLabel {
+  display: flex;
+  width: 90px;
+  height: 90px;
+  gap: var(--global-gap-short);
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  border: 1px white solid;
 }
 
-.imgAlergeno{
-    width: 30px;
-    height: auto;
-    object-fit: cover;
+.imgAlergeno {
+  width: 30px;
+  height: auto;
+  object-fit: cover;
 }
-.textAlergia{
-    font-weight: 500;
+.textAlergia {
+  font-weight: 500;
 }
 body.modal-active {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 /* ACA SE EMPIEZA A MAQUETAR EL SEGUNDO SECTION, DONDE SE ENCONTRARAN LOS INGREDIENTES, LOS TIPS, LOS PASOS PARA LA ELABORACION DE LAS RECETAS Y LA INFO NUTRICIONAL DEL PLATO */
-.containerIngrCreationTrickTipsinfoNutritional{
-    border: 1px black solid;
-    display: flex;
-    flex-wrap: wrap;
+.containerIngrCreationTrickTipsinfoNutritional {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* /Aca empiezo a maquetar el div que contiene los ingredientes */
-.containerIngredients{
-    flex: 1 1 25%;
-    height: max-content;
+.containerIngredients {
+  flex: 1 1 25%;
+  height: max-content;
 }
-.titleIngredients{
-    color: var(--secundary-color-text);
-    font-weight: 900;
-    margin: var(--global-margin) auto;
+.titleIngredients {
+  color: var(--secundary-color-text);
+  font-weight: 700;
+  margin: var(--global-margin) auto;
 }
-#ulContainerIngredients, #olBtnContent{
-    display: flex;
-    flex-direction: column;
-    gap: var(--global-gap);
-    text-align: left;
-    padding: var(--global-padding);
-    width: 100%;
+#ulContainerIngredients,
+#olBtnContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--global-gap);
+  text-align: left;
+  padding: var(--global-padding);
+  width: 100%;
 }
-.liIngredients{
-    font-size: 1.1rem;
-    color: var(--terciary-color-text);
-    font-weight: 700;
+.liIngredients {
+  font-size: 1.1rem;
+  color: var(--terciary-color-text);
+  font-weight: 700;
 }
-.liIngredients::before{
-    content: "✅";
-    margin-right: var(--global-margin-short);
+.liIngredients::before {
+  content: "✅";
+  margin-right: var(--global-margin-short);
 }
 
 /* Aca empiezo a maquetar los btn y el contendedor de los btn dentro del contendedor creationTrick */
-.containerCreationTrick{
-    flex: 1 1 40%;
-    height: max-content;
+.containerCreationTrick {
+  flex: 1 1 40%;
+  min-height: 100%;
 }
-.containerBtnCreationTrick{
-    width: 100%;
-    height: 60px;
-    display: flex;
-    gap: 5px;
+.containerBtnCreationTrick {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  gap: 5px;
+}
 
+#btnCreation,
+#btnTrick {
+  font-size: 1.1rem;
+  cursor: pointer;
+  background-color: var(--secundary-color-text);
+  color: var(--bg-color);
+  font-weight: 700;
+  border: 1px white solid;
+  padding: var(--global-padding-short);
+  transition: 0.5s all ease-in-out;
 }
-
-#btnCreation, #btnTrick{
-    font-size: 1.1rem;
-    cursor: pointer;
-    background-color: var(--secundary-color-text);
-    color: var(--bg-color);
-    font-weight: 700;
-    border: none;
-    padding: var(--global-padding-short);
-    transition: 0.5s all ease-in-out;
-}
-#btnCreation:hover, #btnTrick:hover{
-    background-color: rgb(60, 180, 75);
+#btnCreation:hover,
+#btnTrick:hover {
+  background-color: rgb(60, 180, 75);
   color: black;
 }
-.liContentBtn{
-    font-size: 1.1rem;
-    color: var(--terciary-color-text);
-    font-weight: 700;
-    margin-left:var(--global-margin);
+.liContentBtn {
+  font-size: 1.1rem;
+  color: var(--bg-color);
+  font-weight: 700;
+  margin-left: var(--global-margin);
 }
 
-.contentBtnHidden{
-    display: none;
+.contentBtnHidden {
+  display: none;
 }
-#contentBtn{
-border: 1.5px var(--secundary-color-text) solid;
-display: flex;
-min-height: 380px;
-max-height: max-content;
-}
-
-.containerInfoNutritionalRecipes{
-    flex: 1 1 35%;
-    border: 2px yellow solid;
-    height: max-content;
+#contentBtn {
+  display: flex;
+  min-height: 400px;
+  max-height: max-content;
 }
 
+/* estilos del bgcolor, para segun el btn que utilice cambie el bgcolor */
+#contentBtn.bgGreen {
+  background-color: var(--secundary-color-text);
+}
+#contentBtn.bgWhite {
+  background-color: var(--bg-color);
+}
+.containerInfoNutritionalRecipes {
+  flex: 1 1 35%;
+  height: max-content;
+  background-color: var(--bg-color);
+  padding: var(--global-padding-short);
+}
 
 /* Aca maqueto el contendor del contenido de btnTrick y su texto */
 
-.divContainerTrickToChef{
-    background-color: var(--secundary-color-text);
-    display: flex;
-    align-items: center;
-    margin: auto;
-    width: 80%;
-    height: 100%;
-    border: 1px white solid;
-    border-radius: 15px;
-    flex-direction: column;
-    padding: 40px;
+.divContainerTrickToChef {
+  background-color: var(--secundary-color-text);
+  display: flex;
+  align-items: center;
+  margin: auto;
+  width: 80%;
+  height: 100%;
+  border: 1px white solid;
+  border-radius: 15px;
+  flex-direction: column;
+  padding: 40px;
 }
 
-.titleTricktoChef{
-    color: var(--bg-color);
-    margin-top: var(--global-margin);
+.titleTricktoChef {
+  color: var(--bg-color);
+  margin-top: var(--global-margin);
+}
+.bi-patch-exclamation {
+  font-size: 50px;
+  color: var(--bg-color);
+  font-weight: 900;
+}
 
+.animate__flash {
+  animation-duration: 2s;
+  animation-delay: 0.5s;
+}
+
+/* Aca empiezo  maquetar el containerInfoNutritionalRecipes y todo sy contenido */
+
+.containerCanvasNutritionRecipes {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.containerCanvasRecipes {
+  width: 70%;
+}
+
+.containerIngredients,
+.containerCreationTrick,
+.containerInfoNutritionalRecipes {
+  flex: 1;
+}
+/* Aca empiezo a maquetar los ultimos dos div del containerInfoNutritionalRecipes, que serian la tabla y el resto de info nutricional */
+.tableChartRecipes {
+  padding: var(--global-padding-short);
+  width: 100%;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  margin: var(--global-margin-short);
+}
+.containerContentNutritionRecipes {
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-radius: 12px;
+  margin: 0 auto;
+}
+.bgLabelFat {
+  color: rgb(10, 85, 47);
+  font-weight: 500;
+}
+.bgLabelHydrates {
+  color: rgb(231, 76, 60);
+  font-weight: 500;
+}
+.bgLabelProteins {
+  color: rgb(255, 165, 0);
+  font-weight: 500;
 }
 /* Aca empiezan las medias query */
-@media (max-width: 768px){
-    .containerImgRecipesDestacadas, .containerInfoRecipesModal{
-        min-width: 100%;
-    }
-    .containerInfo p{
-        font-size: 0.8rem;
-    }
-    
-    .licontainerRecipesLabel{
-        width: 70px;
-        height: 70px;
-        gap: var(--global-gap-short);
-    }
-    .imgAlergeno{
-        width: 25px;
-        height: auto;
-    }
-    .textAlergia{
-        font-size: 0.7rem;
-    }
-    .recipeNameModal{
-        font-size: 1.4rem;
-    }
-    .containerIngrCreationTrickTipsinfoNutritional{
-        margin-top: 35vh;
-    }
+@media (max-width: 768px) {
+  .containerImgRecipesDestacadas,
+  .containerInfoRecipesModal {
+    min-width: 100%;
+  }
+  .containerInfo p {
+    font-size: 0.8rem;
+  }
 
-    .containerIngredients, .containerCreationTrick, .containerInfoNutritionalRecipes{
-        min-width: 100%;
-        min-height: 100%;
-    }
+  .licontainerRecipesLabel {
+    width: 70px;
+    height: 70px;
+    gap: var(--global-gap-short);
+  }
+  .imgAlergeno {
+    width: 25px;
+    height: auto;
+  }
+  .textAlergia {
+    font-size: 0.7rem;
+  }
+  .recipeNameModal {
+    font-size: 1.4rem;
+  }
+  .containerIngrCreationTrickTipsinfoNutritional {
+    margin-top: 35vh;
+  }
+
+  .containerIngredients,
+  .containerCreationTrick,
+  .containerInfoNutritionalRecipes {
+    min-width: 100%;
+    min-height: 100%;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
-    .containerImgRecipesDestacadas, .containerInfoRecipesModal{
-        min-width: 100%;
-    }
+  .containerImgRecipesDestacadas,
+  .containerInfoRecipesModal {
+    min-width: 100%;
+  }
 }
