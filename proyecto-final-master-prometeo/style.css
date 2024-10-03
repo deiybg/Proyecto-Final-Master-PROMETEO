@@ -15,6 +15,7 @@
   --global-font-family: "Roboto";
   --global-margin: 20px;
   --global-margin-short: 10px;
+  --global-margin-title: 50px;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -54,6 +55,6 @@ ul {
 
 main {
   margin-top: 10vh;
-
   min-height: 80vh;
+  width: 100%;
 }

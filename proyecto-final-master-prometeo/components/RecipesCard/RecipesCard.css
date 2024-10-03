@@ -2,7 +2,7 @@
 
 .ulRecipesCards {
   width: 85%;
-  height: auto;
+  height: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-template-rows: auto;
@@ -13,7 +13,6 @@
 .liRecipesCards {
   cursor: pointer;
   width: 360px;
-  height: auto;
 }
 .liRecipesCards:hover h4 {
   color: rgb(60, 180, 75);
@@ -26,7 +25,7 @@
   width: 100%;
   height: auto;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 12px;
 }
 
 .imgRecipesDestacadas:hover {
@@ -100,6 +99,7 @@
   flex: 1 1 60%;
   background-color: var(--secundary-color-text);
   height: 100%;
+  border-top-right-radius: 12px;
 }
 
 /* Maquetar la seccion de Alergenos */
@@ -244,7 +244,7 @@ body.modal-active {
   width: 80%;
   height: 100%;
   border: 1px white solid;
-  border-radius: 15px;
+  border-radius: 12px;
   flex-direction: column;
   padding: 40px;
 }
@@ -264,7 +264,7 @@ body.modal-active {
   animation-delay: 0.5s;
 }
 
-/* Aca empiezo  maquetar el containerInfoNutritionalRecipes y todo sy contenido */
+/* Aca empiezo  maquetar el containerInfoNutritionalRecipes y todo su contenido */
 
 .containerCanvasNutritionRecipes {
   display: flex;
@@ -276,7 +276,14 @@ body.modal-active {
 }
 
 .containerCanvasRecipes {
-  width: 70%;
+  width: 100%;
+  height: 260px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(240, 240, 240);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-top: var(--global-margin-short);
 }
 
 .containerIngredients,
@@ -284,21 +291,22 @@ body.modal-active {
 .containerInfoNutritionalRecipes {
   flex: 1;
 }
+
 /* Aca empiezo a maquetar los ultimos dos div del containerInfoNutritionalRecipes, que serian la tabla y el resto de info nutricional */
 .tableChartRecipes {
-  padding: var(--global-padding-short);
   width: 100%;
   background-color: rgb(240, 240, 240);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   border-radius: 12px;
   margin: var(--global-margin-short);
 }
 .containerContentNutritionRecipes {
   background-color: rgb(240, 240, 240);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   width: 100%;
   border-radius: 12px;
   margin: 0 auto;
+  padding: var(--global-padding-short);
 }
 .bgLabelFat {
   color: rgb(10, 85, 47);
@@ -312,11 +320,35 @@ body.modal-active {
   color: rgb(255, 165, 0);
   font-weight: 500;
 }
+.ulContentInfoRecipes {
+  margin-top: var(--global-margin-short);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  align-items: start;
+}
+.ulContentInfoRecipes li {
+  font-weight: 500;
+}
+.titleIngredientsInfoAdic {
+  color: var(--secundary-color-text);
+  font-weight: 700;
+}
+
+.titleIngredientsReceta {
+  padding: var(--global-padding-short);
+  color: var(--secundary-color-text);
+  font-weight: 700;
+}
 /* Aca empiezan las medias query */
 @media (max-width: 768px) {
   .containerImgRecipesDestacadas,
   .containerInfoRecipesModal {
     min-width: 100%;
+    border-radius: 0;
+  }
+  .imgRecipesDestacadas {
+    border-radius: 0;
   }
   .containerInfo p {
     font-size: 0.8rem;
@@ -346,6 +378,10 @@ body.modal-active {
   .containerInfoNutritionalRecipes {
     min-width: 100%;
     min-height: 100%;
+  }
+  #contentBtn {
+    border-top: 1px var(--secundary-color-text) solid;
+    border-bottom: 1px var(--secundary-color-text) solid;
   }
 }
 

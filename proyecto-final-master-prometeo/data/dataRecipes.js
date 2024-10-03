@@ -247,7 +247,7 @@ export const recetas = {
     fechaElaboracion: "28 de Septiembre de 2024",
     alergenos: ["Lácteos", "Huevos"],
     labels: ["Vegetariana"],
-    destacados: "no",
+    destacados: "si",
   },
   risottoDeSetas: {
     nombrePlato: "Risotto de Setas",
@@ -314,7 +314,7 @@ export const recetas = {
     fechaElaboracion: "18 de Septiembre de 2024",
     alergenos: ["Lácteos (mantequilla y parmesano)"],
     labels: ["Vegetariano"],
-    destacados: "no",
+    destacados: "si",
   },
 
   curryDeLentejas: {
@@ -382,7 +382,7 @@ export const recetas = {
     fechaElaboracion: "19 de Septiembre de 2024",
     alergenos: ["Ninguno"],
     labels: ["Vegano", "Sin Gluten"],
-    destacados: "no",
+    destacados: "si",
   },
 
   quicheDeEspinacas: {

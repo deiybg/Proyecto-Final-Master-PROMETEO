@@ -20,9 +20,12 @@ export const printRecipesCards = (recetas, divcontainerCardsDestacados) => {
     li.onclick = () => openModal(receta);
 
     li.innerHTML = `
+            <div>
             <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
             <h4 class="titleDestacadosDescription">Receta destacada</h4>
             <h5 class="recipeName">${receta.nombrePlato}</h5>
+            </div>
+            
         `;
     ul.appendChild(li);
   });
@@ -201,11 +204,12 @@ const printInfoNutritionRecipe = (receta) => {
   const container = document.querySelector(".containerInfoNutritionalRecipes");
   cleanPage(container);
   container.innerHTML = `
-        <h3 class="titleIngredients">Esta Receta nos Aporta: </h3>
-        <div class="containerCanvasNutritionRecipes">
+        <h3 class="titleIngredientsReceta">Esta Receta nos Aporta: </h3>
+        
         <div class="containerCanvasRecipes">
             <canvas id="nutritionRecipesChart"></canvas>
             </div>
+            <div class="containerCanvasNutritionRecipes">
             <table class="tableChartRecipes">
             <tbody>
                 <tr class="fat">
@@ -231,8 +235,8 @@ const printInfoNutritionRecipe = (receta) => {
         </div>
         
         <div class="containerContentNutritionRecipes">
-            <h4>Información adicional por ración: </h4>
-            <ul>
+            <h4 class="titleIngredientsInfoAdic">Información adicional por ración: </h4>
+            <ul class="ulContentInfoRecipes">
                 <li>Azúcares: ${receta.infoNutricional.azucares} gr.</li>
                 <li>Grasas Saturadas: ${receta.infoNutricional.grasasSaturadas} gr.</li>
                 <li>Fibra: ${receta.infoNutricional.fibra} gr.</li>
@@ -266,6 +270,17 @@ const printInfoNutritionRecipe = (receta) => {
           borderWidth: 1,
         },
       ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          position: "right",
+          labels: {
+            boxWidth: 30, // Ajusta el tamaño del cuadro de leyenda
+            padding: 20, // Añade espacio entre la leyenda y el gráfico
+          },
+        },
+      },
     },
   });
 };

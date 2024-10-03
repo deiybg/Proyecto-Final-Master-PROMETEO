@@ -15,7 +15,7 @@
 .divContainer_Breakdown,
 .divContainerDietLabels {
   background-color: white;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
   height: max-content;
   padding: var(--global-padding-short);
   border-radius: 8px;
@@ -32,7 +32,7 @@
   width: 100%;
   border-radius: 8px;
   background-color: rgb(240, 240, 240);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   font-size: 0.8rem;
   font-weight: 600;
 }
@@ -211,7 +211,7 @@
   border: 1px solid black;
   border-radius: 8px;
   background-color: rgb(240, 240, 240);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   padding: 10px;
   color: var(--secundary-color-text);
   margin-top: var(--global-margin-short);

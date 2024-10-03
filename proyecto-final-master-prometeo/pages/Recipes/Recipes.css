@@ -91,13 +91,13 @@
 
 .containerDestacados {
   width: 100%;
-  min-height: max-content;
+  min-height: auto;
   text-align: center;
-  padding: var(--global-padding-short);
   display: flex;
   flex-direction: column;
   gap: var(--global-gap);
   justify-content: center;
+  padding: var(--global-padding);
 }
 
 .containerCardsDestacados {
@@ -112,7 +112,8 @@
   color: var(--terciary-color-text);
   font-size: 1.5rem;
   font-weight: 900;
-  margin-bottom: var(--global-margin);
+  margin-top: var(--global-margin-title);
+  margin-bottom: var(--global-margin-title);
 }
 
 /* Estilo para el fondo del modal (oculto por defecto) */
@@ -143,6 +144,7 @@
   transform: rotateY(-90deg);
   transition: transform 0.5s ease-in-out;
   margin: auto;
+  border-radius: 12px;
 }
 
 #recipeModal.show {
@@ -158,9 +160,84 @@
 .bi-x-circle {
   color: var(--bg-color);
 }
+/* Aca se empieza a maquetar la seccion de videos short de youtube */
+#ShortsVideosYoutube {
+  height: auto;
+  background-color: rgb(205, 205, 205);
+  padding: var(--global-padding);
+  text-align: center;
+}
+#containerShortsVideosYoutube {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+  gap: var(--global-gap);
+}
 
+.iframeShort {
+  width: 100%;
+  height: 640px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease-in-out;
+}
+.iframeShort:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+}
+.titleVideosShort {
+  color: var(--terciary-color-text);
+  font-size: 1.5rem;
+  font-weight: 900;
+  width: 100%;
+  text-align: center;
+  margin-top: var(--global-margin-title);
+  margin-bottom: var(--global-margin-title);
+}
+
+.btnIframes {
+  font-family: "Roboto";
+  font-weight: 700;
+  padding: 12px 20px;
+  background-color: var(--secundary-color-text);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  margin-top: var(--global-margin);
+  margin-bottom: var(--global-margin);
+  transition: 0.5s all ease-out;
+}
+/* Aca se maqueta la seccion de los short video de youtube, donde se mostraran todos una ves se pulse el btnIframes */
+#containerAllShortsVideosYoutube {
+  width: 100%;
+}
+.ulContainerShortsVideosYoutube {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-rows: auto;
+  width: 100%;
+  height: auto;
+  text-align: center;
+  align-items: center;
+  gap: var(--global-gap);
+  padding: var(--global-padding);
+}
 @media (max-width: 768px) {
   .modalContent {
     margin: auto;
+  }
+  #containerShortsVideosYoutube,
+  .iframeShort {
+    gap: 40px;
+    width: max-content;
+  }
+  .ulContainerShortsVideosYoutube {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-rows: auto;
   }
 }
