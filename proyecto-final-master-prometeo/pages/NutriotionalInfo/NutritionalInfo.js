@@ -14,6 +14,7 @@ import {
 export const NutritionalInfo = () => {
   const main = document.querySelector("main");
   cleanPage(main);
+  main.style.background = "var(--bg-color)"; //se cambia el bg-color ya que mas adelante hay una funcion que la cambia cuando se necesita pintar los todos los short videos de youtube
   main.innerHTML = `
     <div class="containerNutritionForm">
     <fieldset>
