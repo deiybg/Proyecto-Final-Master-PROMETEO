@@ -112,7 +112,7 @@ legend {
   border: 1px solid black;
   border-radius: 8px;
   background-color: rgb(240, 240, 240);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
   padding: 10px;
   color: var(--secundary-color-text);
   font-size: 1.5rem;
@@ -121,6 +121,7 @@ legend {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  font-weight: 700;
 }
 
 .error-message {

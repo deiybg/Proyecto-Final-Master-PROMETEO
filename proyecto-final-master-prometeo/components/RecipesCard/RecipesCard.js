@@ -3,7 +3,167 @@ import { cleanPage } from "../../Utils/CleanPage";
 import { recetas } from "../../data/dataRecipes";
 import { recipeLabels } from "../../data/dataLabels";
 
-// Funcion que receorre el array con un forEach la img y titulo de cada receta para luego pintarla por defecto
+//Funcion que me pinta por defecto todas las recetas que se encuentran en mi dataRecipes
+export const prinDefaultAllRecipes = (
+  recetas,
+  divcontainerSearchAllRecipes
+) => {
+  cleanPage(divcontainerSearchAllRecipes);
+
+  const ul = document.createElement("ul");
+  ul.classList.add("ulRecipesCards");
+
+  const allRecipes = Object.values(recetas).flat();
+
+  allRecipes.forEach((receta) => {
+    const li = document.createElement("li");
+    li.classList.add("liRecipesCards");
+    li.onclick = () => openModal(receta);
+
+    li.innerHTML = `
+          <div>
+            <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
+            <div class="containerTitleAndDestacados">
+            <h4 class="titleDestacadosDescription">Receta destacada</h4>
+            <h5 class="recipeName">${receta.nombrePlato}</h5>
+            </div>
+          </div>
+        `;
+    ul.appendChild(li);
+  });
+
+  divcontainerSearchAllRecipes.appendChild(ul);
+};
+
+//Funcion que busca en mi dataRecipes todas aquellas recetas que coinciden con la categoria vegetariano y me las pinta
+
+export const recipeContentVegetarian = (
+  recetas,
+  divcontainerSearchAllRecipes
+) => {
+  cleanPage(divcontainerSearchAllRecipes);
+
+  const ul = document.createElement("ul");
+  ul.classList.add("ulRecipesCards");
+
+  // Filtrar las recetas vegetarianas
+  const vegetarianRecipes = Object.values(recetas);
+
+  vegetarianRecipes.forEach((receta) => {
+    // Verificar si "Vegetariano" está en la categoría
+    if (receta.categoria.includes("Vegetariano")) {
+      const li = document.createElement("li");
+      li.classList.add("liRecipesCards");
+      li.onclick = () => openModal(receta);
+
+      li.innerHTML = `
+              <div>
+              <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
+              <h4 class="titleDestacadosDescription">Receta destacada</h4>
+              <h5 class="recipeName">${receta.nombrePlato}</h5>
+              </div>
+          `;
+      ul.appendChild(li);
+    }
+  });
+
+  divcontainerSearchAllRecipes.appendChild(ul);
+};
+
+//Funcion que busca en mi dataRecipes todas aquellas recetas que coinciden con la categoria facil  y me las pinta
+export const recipeContentEasy = (recetas, divcontainerSearchAllRecipes) => {
+  cleanPage(divcontainerSearchAllRecipes);
+
+  const ul = document.createElement("ul");
+  ul.classList.add("ulRecipesCards");
+
+  // Filtrar las recetas vegetarianas
+  const vegetarianRecipes = Object.values(recetas);
+
+  vegetarianRecipes.forEach((receta) => {
+    // Verificar si "Vegetariano" está en la categoría
+    if (receta.categoria.includes("Facil")) {
+      const li = document.createElement("li");
+      li.classList.add("liRecipesCards");
+      li.onclick = () => openModal(receta);
+
+      li.innerHTML = `
+              <div>
+              <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
+              <h4 class="titleDestacadosDescription">Receta destacada</h4>
+              <h5 class="recipeName">${receta.nombrePlato}</h5>
+              </div>
+          `;
+      ul.appendChild(li);
+    }
+  });
+
+  divcontainerSearchAllRecipes.appendChild(ul);
+};
+//Funcion que busca en mi dataRecipes todas aquellas recetas que coinciden con categoria sin gluten y me las pinta
+export const recipesContentCeliac = (recetas, divcontainerSearchAllRecipes) => {
+  cleanPage(divcontainerSearchAllRecipes);
+
+  const ul = document.createElement("ul");
+  ul.classList.add("ulRecipesCards");
+
+  // Filtrar las recetas vegetarianas
+  const vegetarianRecipes = Object.values(recetas);
+
+  vegetarianRecipes.forEach((receta) => {
+    // Verificar si "Vegetariano" está en la categoría
+    if (receta.categoria.includes("Sin Gluten")) {
+      const li = document.createElement("li");
+      li.classList.add("liRecipesCards");
+      li.onclick = () => openModal(receta);
+
+      li.innerHTML = `
+          <div>
+          <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
+          <h4 class="titleDestacadosDescription">Receta destacada</h4>
+          <h5 class="recipeName">${receta.nombrePlato}</h5>
+          </div>
+      `;
+      ul.appendChild(li);
+    }
+  });
+
+  divcontainerSearchAllRecipes.appendChild(ul);
+};
+//Funcion que busca en mi dataRecipes todas aquellas recetas que coinciden con categoria postres y me las pinta
+export const recipesContentDessert = (
+  recetas,
+  divcontainerSearchAllRecipes
+) => {
+  cleanPage(divcontainerSearchAllRecipes);
+
+  const ul = document.createElement("ul");
+  ul.classList.add("ulRecipesCards");
+
+  // Filtrar las recetas vegetarianas
+  const vegetarianRecipes = Object.values(recetas);
+
+  vegetarianRecipes.forEach((receta) => {
+    // Verificar si "Vegetariano" está en la categoría
+    if (receta.categoria.includes("Postres")) {
+      const li = document.createElement("li");
+      li.classList.add("liRecipesCards");
+      li.onclick = () => openModal(receta);
+
+      li.innerHTML = `
+              <div>
+              <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
+              <h4 class="titleDestacadosDescription">Receta destacada</h4>
+              <h5 class="recipeName">${receta.nombrePlato}</h5>
+              </div>
+          `;
+      ul.appendChild(li);
+    }
+  });
+
+  divcontainerSearchAllRecipes.appendChild(ul);
+};
+// Funcion que recorre el array con un forEach la img y titulo de cada receta para luego pintarla por defecto
 export const printRecipesCards = (recetas, divcontainerCardsDestacados) => {
   cleanPage(divcontainerCardsDestacados);
   const ul = document.createElement("ul");
@@ -34,7 +194,7 @@ export const printRecipesCards = (recetas, divcontainerCardsDestacados) => {
 };
 
 // Funcion que pinta la info de la receta en el modalcuando se consulta una receta
-const openModal = (receta) => {
+export const openModal = (receta) => {
   const modal = document.querySelector("#recipeModal");
 
   modal.classList.add("show");

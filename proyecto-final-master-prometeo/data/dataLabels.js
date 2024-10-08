@@ -13,7 +13,7 @@ export const recipeLabels = [
   },
   {
     alergia: "Sin Crustaceos",
-    imgAlergia: "/icons/sincrustaseos.png",
+    imgAlergia: "/icons/sinCrustaceos.png",
   },
   {
     alergia: "Sin Lacteos",

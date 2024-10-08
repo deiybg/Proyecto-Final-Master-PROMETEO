@@ -1,18 +1,19 @@
 /* ACA SE MAQUETA LA PRIMERA SECTION DEL MODAL, DONDE SE ENCUENTRA LA IMG, EL TITLE, ALGUNOS DATOS DE PREPARACION Y LOS LABELS DE ALERGENOS */
 
 .ulRecipesCards {
-  width: 85%;
+  width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   grid-template-rows: auto;
   justify-content: center;
   gap: 60px;
   justify-items: center;
+  padding: var(--global-padding);
 }
 .liRecipesCards {
   cursor: pointer;
-  width: 360px;
+  width: 100%;
 }
 .liRecipesCards:hover h4 {
   color: rgb(60, 180, 75);
@@ -25,7 +26,9 @@
   width: 100%;
   height: auto;
   object-fit: cover;
+  object-position: center;
   border-radius: 12px;
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
 }
 
 .imgRecipesDestacadas:hover {
@@ -339,6 +342,7 @@ body.modalActive {
   color: var(--secundary-color-text);
   font-weight: 700;
 }
+
 /* Aca empiezan las medias query */
 @media (max-width: 768px) {
   .containerImgRecipesDestacadas,
@@ -381,6 +385,24 @@ body.modalActive {
   #contentBtn {
     border-top: 1px var(--secundary-color-text) solid;
     border-bottom: 1px var(--secundary-color-text) solid;
+  }
+  .liRecipesCards {
+    min-width: 100%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+  }
+  .ulRecipesCards {
+    width: 90%;
+  }
+  .imgRecipesDestacadas {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  .titleDestacadosDescription {
+    font-size: 1.5rem;
+  }
+  .recipeName {
+    font-size: 1.2rem;
   }
 }
 

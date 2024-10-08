@@ -158,6 +158,9 @@ body.modal-active {
 #recipeModal.show .modalContent {
   transform: rotateY(0);
 }
+.containerTitleAndDestacados {
+  padding: var(--global-padding-short);
+}
 
 .bi-x-circle {
   color: var(--bg-color);
@@ -253,19 +256,75 @@ body.modal-active {
   color: var(--terciary-color-text);
   text-transform: uppercase;
 }
-.pcantVideos,
-.pcantVideos span {
+.pcantVideos {
   color: var(--secundary-color-text);
   font-weight: 900;
   font-size: 1.5rem;
-}
-.pcantVideos {
   text-transform: uppercase;
   padding: var(--global-padding);
+  border-bottom: 3px var(--terciary-color-text) double;
+}
+.spanCantVideos {
+  color: var(--terciary-color-text);
 }
 .containerSpanCantVideos {
   color: var(--terciary-color-text);
   font-size: 50px;
+}
+
+/* ACA EMPIEZO A MAQUETAR LA SECTION DONDE ESTARAN LAS BUSQUEDAS MEDIANTE BTN DE LAS RECETAS */
+#searchAllRecipes {
+  width: 100%;
+  padding: var(--global-padding);
+  background-color: var(--bg-color);
+  margin-top: var(--global-margin);
+}
+.containeBtnSearchAllRecipes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--global-gap);
+  align-items: center;
+}
+.liSearchAllRecipes {
+  display: flex;
+  flex-direction: column;
+  width: 120px;
+  height: 120px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--secundary-color-text);
+  padding: var(--global-padding-short);
+}
+
+.btnAllRecipes {
+  border: none;
+  background-color: transparent;
+  font-family: var(--global-font-family);
+  color: var(--bg-color);
+  font-weight: 900;
+  transition: color 0.3s ease;
+}
+.hide-text {
+  color: transparent;
+}
+.liSearchAllRecipes:hover .logoBtnSearchRecipes {
+  transform: scale(1.2) translateY(10%);
+  transition: transform 0.5s ease;
+}
+
+.logoBtnSearchRecipes {
+  width: 80px;
+  height: 80px;
+  filter: invert(1) brightness(2);
+}
+/* ACA EMPIEZO A MAQUETAR EL CONTENIDO QUE SE PINTA DINAMICAMENTE EN EL divcontainerSearchAllRecipes */
+.divcontainerSearchAllRecipes {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 @media (max-width: 768px) {
   .modalContent {
@@ -286,5 +345,17 @@ body.modal-active {
   }
   .ulContainerShortsVideosYoutube > div {
     width: 280px;
+  }
+  .liSearchAllRecipes {
+    width: 90px;
+    height: 90px;
+  }
+  .logoBtnSearchRecipes {
+    width: 45px;
+    height: 45px;
+  }
+  .liSearchAllRecipes:hover .logoBtnSearchRecipes {
+    transform: scale(1.2) translateY(20%);
+    transition: transform 0.5s ease;
   }
 }

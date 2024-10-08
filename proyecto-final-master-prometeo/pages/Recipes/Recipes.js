@@ -1,9 +1,17 @@
 import "./Recipes.css";
 import { cleanPage } from "../../Utils/CleanPage";
 import { recetas } from "../../data/dataRecipes";
-import { printRecipesCards } from "../../components/RecipesCard/RecipesCard";
+import {
+  printRecipesCards,
+  prinDefaultAllRecipes,
+  recipeContentVegetarian,
+  recipeContentEasy,
+  recipesContentCeliac,
+  recipesContentDessert,
+} from "../../components/RecipesCard/RecipesCard";
 import { shortVideos } from "../../data/dataShortVideosYoutube";
 import { ScrollTop } from "../../Utils/ScrollTop";
+import { openModal } from "../../components/RecipesCard/RecipesCard";
 
 export const Recipes = () => {
   const main = document.querySelector("main");
@@ -36,15 +44,30 @@ export const Recipes = () => {
     <div id="containerShortsVideosYoutube"></div>
     <button class="btnIframes">VER TODOS LOS VÍDEOS CORTOS</button>
     </section>
+    <section id="searchAllRecipes">
+    <div class="containerAllBtnRecipes"></div>
+    <div id="containerSearchAllRecipes" class="divcontainerSearchAllRecipes"></div>
+    </section>
     
     `;
   const divcontainerCardsDestacados = document.querySelector(
     ".containerCardsDestacados"
   );
+  const divcontainerSearchAllRecipes = document.querySelector(
+    ".divcontainerSearchAllRecipes"
+  );
+
   printRecipesCards(recetas, divcontainerCardsDestacados); // funcion que me pinta las recetas destacadas
+  prinDefaultAllRecipes(recetas, divcontainerSearchAllRecipes);
 
   printShortVideosYoutube(); //Funcion que me imprime los short videos de youtube
   printAllVideosShortsYoutube(shortVideos); //-funcion que se ejecuta al darle click al btn y pinta todos los shortVideos que encuentra en la dataShortVideosYoutube
+  insertBtnSearchAllRecipes(); //Funcion que inserta en la section searchAllRecipes los btn para buscar las recetas segun criterios
+  printAllRecipes(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn todas las recetas, Todas las recetas de mi data
+  printAllRecipesVegetarian(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn recetas vegetarianas, Todas las recetas de mi data con las coincidencias
+  printAllRecipesEasy(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn faciles y rapidas Todas las recetas de mi data con las coincidencias
+  printAllRecipesCeliac(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn sin gluten, Todas las recetas de mi data con las coincidencias
+  printAllRecipesDessert(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn postres, Todas las recetas de mi data con las coincidencias
 };
 
 //funcion que pinta 3 short videos y  que se insertara en el #containerShortsVideosYoutube y se veran por defecto
@@ -148,8 +171,7 @@ const filterShortVideosYoutube = (shortVideos) => {
 
       // Verificar si el input está vacío
       if (keyword.trim() === "") {
-        containerAllShortsVideosYoutube.innerHTML = `<p id="error-message">Por favor, introduce una palabra válida para buscar videos.</p>`;
-        return;
+        filterShortVideosYoutube(shortVideos);
       }
 
       const filteredVideos = shortVideos.filter((video) =>
@@ -165,9 +187,9 @@ const filterShortVideosYoutube = (shortVideos) => {
           cantVideos === 1 ? "" : "s"
         } receta${cantVideos === 1 ? "" : "s"} coincide${
           cantVideos === 1 ? "" : "n"
-        } con tu búsqueda "${keyword}". <span class="containerCantVideos">${cantVideos} receta${
+        } con tu búsqueda "${keyword}". <span class="spanCantVideos">${cantVideos} receta${
           cantVideos === 1 ? "" : "s"
-        } econtrada${cantVideos === 1 ? "" : "s"}</span></p>`;
+        } encontrada${cantVideos === 1 ? "" : "s"}</span></p>`;
 
         filteredVideos.forEach((video) => {
           // Crear el ul contenedor para el video
@@ -197,6 +219,101 @@ const filterShortVideosYoutube = (shortVideos) => {
         <p id="error-message">No se encontraron videos para la consulta <span class="messageErrorVideo">" ${keyword} ".</span>Por favor inicie una nueva consulta.</p>
         `;
         document.querySelector("#foodRecipesInput").value = "";
+        document.querySelector(".containerCantVideos").innerHTML = "";
       }
+    });
+};
+
+//Funcion que insertara en el searchAllRecipes los btn opara las busquedas de recetas
+
+const insertBtnSearchAllRecipes = () => {
+  const sectionSearchAllRecipes = document.querySelector(
+    ".containerAllBtnRecipes"
+  );
+  sectionSearchAllRecipes.innerHTML = `
+<ul class="containeBtnSearchAllRecipes">
+<li class="liSearchAllRecipes" id="btnSearchAllRecipes">
+<img src="/icons/allFood.png" alt="logo todas las recetas" class="logoBtnSearchRecipes"/>
+<button class="btnAllRecipes" type="button">Todas las Recetas</button>
+</li>
+<li class="liSearchAllRecipes" id="btnSearchVegetarianRecipes">
+<img src="/icons/vegetarian.png" alt="logo receta vegetariana" class="logoBtnSearchRecipes"/>
+<button class="btnAllRecipes" type="button">Recetas  Vegetarianas</button>
+</li>
+<li class="liSearchAllRecipes" id="btnSearchEasyRecipes" >
+<img src="/icons/fastFood.png" alt="logo recetas faciles y rapidas" class="logoBtnSearchRecipes"/>
+<button class="btnAllRecipes" type="button">Fáciles y Rápidas</button>
+</li>
+<li class="liSearchAllRecipes" id="btnSearchCeliacRecipes">
+<img src="/icons/Celiac.png" alt="logo recetas sin gluten" class="logoBtnSearchRecipes"/>
+<button class="btnAllRecipes" type="button">Sin gluten</button>
+</li>
+<li class="liSearchAllRecipes" id="btnSearchDessertRecipes" >
+<img src="/icons/dessert.png" alt="logo postres" class="logoBtnSearchRecipes"/>
+<button class="btnAllRecipes" type="button">Postres</button>
+</li>
+</ul>
+`;
+  const listItems = document.querySelectorAll(".liSearchAllRecipes");
+
+  listItems.forEach((li) => {
+    li.addEventListener("mouseover", () => {
+      const button = li.querySelector("button");
+      button.classList.add("hide-text");
+    });
+
+    li.addEventListener("mouseout", () => {
+      const button = li.querySelector("button");
+      button.classList.remove("hide-text");
+    });
+  });
+};
+//Funcion que me pinta todas las recetas de mi base de datos
+const printAllRecipes = (recetas, divcontainerSearchAllRecipes) => {
+  // Agregar el listener al botón
+  document
+    .querySelector("#btnSearchAllRecipes")
+    .addEventListener("click", () => {
+      prinDefaultAllRecipes(recetas, divcontainerSearchAllRecipes);
+    });
+};
+
+//Funcion que me pinta todas las recetas con la categoria Vegetarian de mi base de datos
+
+const printAllRecipesVegetarian = (recetas, divcontainerSearchAllRecipes) => {
+  document
+    .querySelector("#btnSearchVegetarianRecipes")
+    .addEventListener("click", () => {
+      recipeContentVegetarian(recetas, divcontainerSearchAllRecipes);
+    });
+};
+
+//Funcion que me pinta todas las recetas con la categoria facil y rapido de mi base de datos
+
+const printAllRecipesEasy = (recetas, divcontainerSearchAllRecipes) => {
+  document
+    .querySelector("#btnSearchEasyRecipes")
+    .addEventListener("click", () => {
+      recipeContentEasy(recetas, divcontainerSearchAllRecipes);
+    });
+};
+
+//Funcion que me pinta todas las recetas con la categoria sin glutende mi base de datos
+
+const printAllRecipesCeliac = (recetas, divcontainerSearchAllRecipes) => {
+  document
+    .querySelector("#btnSearchCeliacRecipes")
+    .addEventListener("click", () => {
+      recipesContentCeliac(recetas, divcontainerSearchAllRecipes);
+    });
+};
+
+//Funcion que me pinta todas las recetas con la categoria dessert mi base de datos
+
+const printAllRecipesDessert = (recetas, divcontainerSearchAllRecipes) => {
+  document
+    .querySelector("#btnSearchDessertRecipes")
+    .addEventListener("click", () => {
+      recipesContentDessert(recetas, divcontainerSearchAllRecipes);
     });
 };
