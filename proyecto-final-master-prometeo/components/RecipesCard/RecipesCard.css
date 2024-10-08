@@ -137,10 +137,9 @@
 .textAlergia {
   font-weight: 500;
 }
-body.modal-active {
+body.modalActive {
   overflow: hidden;
 }
-
 /* ACA SE EMPIEZA A MAQUETAR EL SEGUNDO SECTION, DONDE SE ENCONTRARAN LOS INGREDIENTES, LOS TIPS, LOS PASOS PARA LA ELABORACION DE LAS RECETAS Y LA INFO NUTRICIONAL DEL PLATO */
 .containerIngrCreationTrickTipsinfoNutritional {
   display: flex;

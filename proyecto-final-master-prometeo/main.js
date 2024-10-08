@@ -7,6 +7,7 @@ import { Recipes } from "./pages/Recipes/Recipes";
 
 const init = () => {
   Header();
+  Recipes();
   linkPage("#nutritional-info", NutritionalInfo);
   linkPage("#recipes", Recipes);
   Footer();

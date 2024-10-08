@@ -146,7 +146,9 @@
   margin: auto;
   border-radius: 12px;
 }
-
+body.modal-active {
+  overflow: hidden;
+}
 #recipeModal.show {
   visibility: visible;
   opacity: 1;
@@ -161,6 +163,9 @@
   color: var(--bg-color);
 }
 /* Aca se empieza a maquetar la seccion de videos short de youtube */
+.containerIframe {
+  width: 320px;
+}
 #ShortsVideosYoutube {
   height: auto;
   background-color: rgb(205, 205, 205);
@@ -169,20 +174,21 @@
 }
 #containerShortsVideosYoutube {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   grid-template-rows: auto;
-  width: 100%;
+  width: 80%;
   height: auto;
-  margin: 0 auto;
+  justify-items: center;
   align-items: center;
   text-align: center;
-  gap: var(--global-gap);
+  gap: var(--global-gap-short);
+  margin: 0 auto;
 }
 
 .iframeShort {
-  width: 80%;
+  width: 100%;
   height: 640px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
   transition: transform 0.5s ease-in-out;
 }
 .iframeShort:hover {
@@ -215,6 +221,16 @@
 /* Aca se maqueta la seccion de los short video de youtube, donde se mostraran todos una ves se pulse el btnIframes */
 #containerAllShortsVideosYoutube {
   width: 100%;
+  padding: var(--global-padding);
+}
+.containerAllShortsVideosYoutube {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  grid-template-rows: auto;
+  width: 100%;
+  height: auto;
+  gap: var(--global-gap);
+  padding: var(--global-padding);
 }
 .ulContainerShortsVideosYoutube {
   display: grid;
@@ -224,8 +240,32 @@
   height: auto;
   text-align: center;
   align-items: center;
-  gap: var(--global-gap-short);
+  gap: var(--global-gap);
   padding: var(--global-padding);
+  justify-items: center;
+}
+.ulContainerShortsVideosYoutube > div {
+  width: 320px;
+  margin: 0 auto;
+}
+.messageErrorVideo {
+  font-weight: 900;
+  color: var(--terciary-color-text);
+  text-transform: uppercase;
+}
+.pcantVideos,
+.pcantVideos span {
+  color: var(--secundary-color-text);
+  font-weight: 900;
+  font-size: 1.5rem;
+}
+.pcantVideos {
+  text-transform: uppercase;
+  padding: var(--global-padding);
+}
+.containerSpanCantVideos {
+  color: var(--terciary-color-text);
+  font-size: 50px;
 }
 @media (max-width: 768px) {
   .modalContent {
@@ -234,10 +274,17 @@
   #containerShortsVideosYoutube,
   .iframeShort {
     gap: 40px;
-    width: max-content;
+    width: 100%;
+  }
+  .containerIframe {
+    width: 350px;
   }
   .ulContainerShortsVideosYoutube {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-template-rows: auto;
+    justify-items: center;
+  }
+  .ulContainerShortsVideosYoutube > div {
+    width: 280px;
   }
 }

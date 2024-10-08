@@ -1,10 +1,7 @@
-import './Header.css'
+import "./Header.css";
 
-
-
-
-const template = ()=>{
-    return`
+const template = () => {
+  return `
  <div id="container-home">
  <img class="img-logo" src="/assets/Heallthy-Logo.jpg" alt="Logo Principal">
  <p class="title-home">Heallthy</p>
@@ -13,9 +10,6 @@ const template = ()=>{
  <nav id="nav" class="nav">
  <button id="cerrar" class="cerrar-menu"><i class="bi bi-x-lg"></i></button>
  <ul class="nav-ul">
- <li>
- <a href="#" id="homelink">Inicio</a>
- </li>
  <li>
  <a href="#" id="recipes">Recetas</a>
  <li>
@@ -29,41 +23,34 @@ const template = ()=>{
  </li>
  </ul>
  </nav>
- `
+ `;
 };
 
-const Header = ()=>{
-    const header = document.createElement("header");
-    header.innerHTML = template();
-   document.body.appendChild(header);
+const Header = () => {
+  const header = document.createElement("header");
+  header.innerHTML = template();
+  document.body.appendChild(header);
 
+  const abrir = header.querySelector("#abrir");
+  const cerrar = header.querySelector("#cerrar");
+  const nav = header.querySelector("#nav");
 
+  abrir.addEventListener("click", () => {
+    nav.classList.add("visible");
+    document.body.classList.add("modal-active");
+  });
 
-   const abrir = header.querySelector("#abrir");
-   const cerrar = header.querySelector("#cerrar");
-   const nav = header.querySelector("#nav");
+  cerrar.addEventListener("click", () => {
+    nav.classList.remove("visible");
+    document.body.classList.remove("modal-active");
+  });
 
-
-   abrir.addEventListener("click", () => {
-       nav.classList.add("visible");
-       document.body.classList.add("modal-active");
-   });
-
-   cerrar.addEventListener("click", () => {
-       nav.classList.remove("visible");
-       document.body.classList.remove("modal-active");
-       
-   });
-
-   document.addEventListener("click", (event) => {
+  document.addEventListener("click", (event) => {
     if (!nav.contains(event.target) && !abrir.contains(event.target)) {
       nav.classList.remove("visible");
       document.body.classList.remove("modal-active");
-
     }
   });
-}
-
-
+};
 
 export default Header;

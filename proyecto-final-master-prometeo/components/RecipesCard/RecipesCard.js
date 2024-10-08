@@ -38,6 +38,7 @@ const openModal = (receta) => {
   const modal = document.querySelector("#recipeModal");
 
   modal.classList.add("show");
+  document.body.classList.add("modalActive");
   printRecipesCardsModal(receta);
   printLabelsRecipes(receta, recipeLabels); //funcion que pinta las etiquetas
   printIngredients(receta); //Funcion que pinta los ingredientes
@@ -46,16 +47,15 @@ const openModal = (receta) => {
   printInfoNutritionRecipe(receta); //funcion que pinta la info nutricional de la receta consultad, con un grafico mostrando los macro nutrientes y en otro contendor otros datos como azucar ,sal,fibra y grasas
   const btnCreation = document.querySelector("#btnCreation");
   const btnTrick = document.querySelector("#btnTrick");
-  const contentBtn = document.querySelector("#contentBtn");
   btnCreation.addEventListener("click", () => {
     printBtnCreation(receta);
   });
-  document.body.classList.add("modal-active");
+
   btnTrick.addEventListener("click", () => {
     printBtnTrick(receta);
   });
 };
-//   funcion que cierra la receta quitandole la clase show y la clase modl-active para volver a activar el scroll
+//   funcion que cierra la receta quitandole la clase show y la clase modal-active para volver a activar el scroll
 document.addEventListener("click", (event) => {
   const recipeModal = document.querySelector("#recipeModal");
   const modalContent = document.querySelector(".modalContent");
@@ -64,7 +64,7 @@ document.addEventListener("click", (event) => {
     !modalContent.contains(event.target)
   ) {
     recipeModal.classList.remove("show");
-    document.body.classList.remove("modal-active");
+    document.body.classList.remove("modalActive");
   }
 });
 
