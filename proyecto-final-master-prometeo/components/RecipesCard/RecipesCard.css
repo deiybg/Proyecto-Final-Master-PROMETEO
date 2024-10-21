@@ -367,8 +367,9 @@ body.modalActive {
 @media (max-width: 768px) {
   .containerImgRecipesDestacadas,
   .containerInfoRecipesModal {
-    min-width: 100%;
+    width: 100%;
     border-radius: 0;
+    border: 2px red solid;
   }
   .imgRecipesDestacadas {
     border-radius: 0;

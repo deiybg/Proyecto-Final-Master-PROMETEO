@@ -8,6 +8,7 @@ header {
   padding: var(--global-padding);
   align-items: center;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
 }
 
 .title-home {

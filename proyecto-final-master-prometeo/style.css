@@ -34,6 +34,7 @@
 body {
   background-color: var(--bg-color);
   overflow-x: hidden;
+  width: 100%;
 }
 
 a {
@@ -57,4 +58,5 @@ main {
   margin-top: 10vh;
   min-height: 80vh;
   width: 100%;
+  overflow-x: hidden;
 }
