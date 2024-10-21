@@ -1,5 +1,5 @@
 #Footer-Heallthy {
-  width: 100%;
+  max-width: 100%;
   margin-top: var(--global-margin);
   position: relative;
   text-align: center;

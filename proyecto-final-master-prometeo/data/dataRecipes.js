@@ -117,7 +117,7 @@ export const recetas = {
     },
     fechaElaboracion: "12 de Septiembre de 2024",
     categoria: ["Facil"],
-    labels: ["Sin Crustaseos", "Sin gluten", "Sin Mariscos", "Sin Soja"],
+    labels: ["Sin Crustaseos", "Sin Gluten", "Sin Mariscos", "Sin Soja"],
     destacados: "si",
   },
   sopaTomateAlbahaca: {
@@ -179,7 +179,7 @@ export const recetas = {
     categoria: ["Vegetariano", "Facil", "Sin Gluten"],
     labels: [
       "Sin gluten",
-      "Sin carne",
+      "Sin Carne",
       "Sin Azucar",
       "Sin Sesamo",
       "Sin Huevos",
@@ -246,7 +246,7 @@ export const recetas = {
     },
     fechaElaboracion: "28 de Septiembre de 2024",
     categoria: ["Vegetariano", "Facil"],
-    labels: ["Vegetariana"],
+    labels: ["Sin Carne", "Sin Soja", "Sin Sesamo"],
     destacados: "si",
   },
   risottoDeSetas: {
@@ -313,7 +313,7 @@ export const recetas = {
     },
     fechaElaboracion: "18 de Septiembre de 2024",
     categoria: ["Sin Gluten"],
-    labels: ["Vegetariano"],
+    labels: ["Sin Carne", "Sin Mariscos"],
     destacados: "si",
   },
 
@@ -381,7 +381,7 @@ export const recetas = {
     },
     fechaElaboracion: "19 de Septiembre de 2024",
     categoria: ["Facil"],
-    labels: ["Vegano", "Sin Gluten"],
+    labels: ["Sin Carne", "Sin Gluten"],
     destacados: "si",
   },
 
