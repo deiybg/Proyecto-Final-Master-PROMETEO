@@ -89,6 +89,20 @@
   color: black;
 }
 
+/* ACA EMPIEZO A MAQUETAR EL CONTENIDO QUE RESULTA DE LA BUSQUEDA DE RECETAS DEL INPUT PRINCIPAL */
+#mainContainerRecipes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-rows: auto;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+  justify-content: center;
+  padding: var(--global-padding);
+  text-align: center;
+}
+
+/* ACA EMPIEZO A MAQUETAR TODO EL CONTENDO DEL CONTAINER DESTACADOS */
 .containerDestacados {
   width: 100%;
   min-height: auto;
@@ -110,7 +124,7 @@
 
 .titleDestacados {
   color: var(--terciary-color-text);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 900;
   margin-top: var(--global-margin-title);
   margin-bottom: var(--global-margin-title);
@@ -200,7 +214,7 @@ body.modal-active {
 }
 .titleVideosShort {
   color: var(--terciary-color-text);
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-weight: 900;
   width: 100%;
   text-align: center;
@@ -274,6 +288,7 @@ body.modal-active {
 
 /* ACA EMPIEZO A MAQUETAR LA SECTION DONDE ESTARAN LAS BUSQUEDAS MEDIANTE BTN DE LAS RECETAS */
 #searchAllRecipes {
+  height: auto;
   width: 100%;
   padding: var(--global-padding);
   background-color: var(--bg-color);
@@ -321,10 +336,21 @@ body.modal-active {
 }
 /* ACA EMPIEZO A MAQUETAR EL CONTENIDO QUE SE PINTA DINAMICAMENTE EN EL divcontainerSearchAllRecipes */
 .divcontainerSearchAllRecipes {
+  height: auto;
   margin-top: 50px;
   display: flex;
   justify-content: center;
   text-align: center;
+}
+
+/* ACA MAQUETO LOS ESTILOS PARA EL INTERSECTIONOBSERVED */
+.contentDivObserve {
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+.visible {
+  opacity: 1;
 }
 @media (max-width: 768px) {
   .modalContent {

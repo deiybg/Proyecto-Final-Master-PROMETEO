@@ -3,6 +3,67 @@ import { cleanPage } from "../../Utils/CleanPage";
 import { recetas } from "../../data/dataRecipes";
 import { recipeLabels } from "../../data/dataLabels";
 
+//Funcion que me pinta cuando inicio la busqueda en el input principal las recetas que dentro de su nombre, elaboracion o ingredientes tengan coincidencias con lo consultado
+
+export const printMainResultSearchRecipes = (
+  recetas,
+  sectionMainContainerRecipes
+) => {
+  cleanPage(sectionMainContainerRecipes);
+
+  const ul = document.createElement("ul");
+  ul.classList.add("ulRecipesCards");
+  const valueMainInput = document
+    .querySelector("#foodRecipesInput")
+    .value.toLowerCase();
+  //Funcion que me permite descomponer un string y quitarlo en caso que lo tengo, acentos o tildes
+  const normalizeString = (str) => {
+    return str
+      .normalize("NFD") // Normaliza la cadena a forma de descomposición
+      .replace(/[\u0300-\u036f]/g, ""); // Elimina los caracteres diacríticos (acentos)
+  };
+  const allRecipes = Object.values(recetas);
+  const filteredAllRecipes = allRecipes.filter(
+    (receta) =>
+      normalizeString(receta.nombrePlato.toLowerCase()).includes(
+        normalizeString(valueMainInput)
+      ) ||
+      receta.ingredientes
+        .map((ingrediente) => normalizeString(ingrediente.toLowerCase()))
+        .join(", ")
+        .includes(normalizeString(valueMainInput)) ||
+      receta.elaboracion
+        .map((elaborar) => normalizeString(elaborar.toLowerCase()))
+        .join(", ")
+        .includes(normalizeString(valueMainInput))
+  );
+
+  if (filteredAllRecipes.length > 0) {
+    document.querySelector("#foodRecipesInput").value = "";
+
+    filteredAllRecipes.forEach((receta) => {
+      const li = document.createElement("li");
+      li.classList.add("liRecipesCards");
+      li.onclick = () => openModal(receta);
+
+      li.innerHTML = `
+            <div>
+              <img class="imgRecipesDestacadasAllRecipes" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
+              <h4 class="titleDestacadosDescription">Receta destacada</h4>
+              <h5 class="recipeName">${receta.nombrePlato}</h5>
+            </div>
+          `;
+      ul.appendChild(li);
+    });
+  } else {
+    const keyword = document.querySelector("#foodRecipesInput").value;
+    document.querySelector("#foodRecipesInput").value = "";
+    ul.innerHTML = `
+    <p id="error-message" >No se encontraron recetas que coincidan con su búsqueda "${keyword}".</p>`;
+  }
+
+  sectionMainContainerRecipes.appendChild(ul); // Agregar el ul al contenedor
+};
 //Funcion que me pinta por defecto todas las recetas que se encuentran en mi dataRecipes
 export const prinDefaultAllRecipes = (
   recetas,
@@ -235,7 +296,7 @@ export const printRecipesCardsModal = (receta) => {
   divContainerModal.innerHTML = `
     <section class="containerImgInfoRecipes">
     <div class="containerImgRecipesDestacadas">
-    <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
+    <img class="imgRecipesDestacadasModal" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
     </div>
     <div class="containerInfoRecipesModal">
     <h4 class="recipeName recipeNameModal textModal">${receta.nombrePlato}</h4>
@@ -353,7 +414,7 @@ const printBtnTrick = (receta) => {
   cleanPage(contentBtn);
   contentBtn.innerHTML = `
     <div class="divContainerTrickToChef">
-    <span id="exclamation" class="animate__animated animate__flash"><i class="bi bi-patch-exclamation"></i></span>
+    <span id="exclamation" class="animate__animated animate__flash animate__infinite"><i class="bi bi-patch-exclamation"></i></span>
     <h4 class="titleTricktoChef">
     " ${receta.trucoChef} "</h4>
     </div>

@@ -16,10 +16,7 @@ const template = () => {
  <a href="#" id="nutritional-info">Información Nutricional</a>
  </li>
  <li>
- <a href="#" id="adviceAndTips">Tips</a>
- </li>
- <li>
- <button id="contactMe">Contáctame</button>
+ <button type="button" id="contactMe">Contáctame</button>
  </li>
  </ul>
  </nav>

@@ -32,28 +32,28 @@ export const recetas = {
       "Si dejas reposar la ensalada en la nevera por 30 minutos, los sabores se intensificarán.",
     urlImage: "/assets/ensGarbanzos.jpg",
     infoNutricional: {
-      totalCalorias: 400, // por ración
+      totalCalorias: 400,
       grasas: {
-        gramos: 20, // en gramos
-        calorias: 180, // en calorías (1g de grasa = 9 calorías)
-        porcentaje: 20, // % del total diario (aproximado)
+        gramos: 20,
+        calorias: 180,
+        porcentaje: 20,
       },
       proteinas: {
-        gramos: 15, // en gramos
-        calorias: 60, // en calorías (1g de proteína = 4 calorías)
-        porcentaje: 30, // % del total diario (aproximado)
+        gramos: 15,
+        calorias: 60,
+        porcentaje: 30,
       },
       hidratosDeCarbono: {
-        gramos: 35, // en gramos
-        calorias: 140, // en calorías (1g de carbohidratos = 4 calorías)
-        porcentaje: 50, // % del total diario (aproximado)
+        gramos: 35,
+        calorias: 140,
+        porcentaje: 50,
       },
-      azucares: 5, // en gramos
-      grasasSaturadas: 6, // en gramos
-      grasasMonoinsaturadas: 10, // en gramos
-      grasasPoliinsaturadas: 2, // en gramos
-      fibra: 8, // en gramos
-      sal: 1.5, // en gramos
+      azucares: 5,
+      grasasSaturadas: 6,
+      grasasMonoinsaturadas: 10,
+      grasasPoliinsaturadas: 2,
+      fibra: 8,
+      sal: 1.5,
     },
     fechaElaboracion: "12 de Septiembre de 2024",
     categoria: ["Vegetariano", "Facil"],
@@ -63,7 +63,7 @@ export const recetas = {
   pastaAlfredoPollo: {
     nombrePlato: "Pasta Alfredo con Pollo",
     tiempoElaboracion: 20,
-    tiempoCoccion: 15, // Número en lugar de texto
+    tiempoCoccion: 15,
     cantidadRaciones: 4,
     complejidad: "Fácil",
     ingredientes: [
@@ -92,28 +92,28 @@ export const recetas = {
       "Agrega un chorrito de vino blanco a la salsa Alfredo para un toque gourmet.",
     urlImage: "/assets/pastaAlfredo.jpg",
     infoNutricional: {
-      totalCalorias: 700, // por ración
+      totalCalorias: 700,
       grasas: {
-        gramos: 35, // en gramos
-        calorias: 315, // en calorías (1g de grasa = 9 calorías)
-        porcentaje: 20, // % del total diario (aproximado)
+        gramos: 35,
+        calorias: 315,
+        porcentaje: 20,
       },
       proteinas: {
-        gramos: 30, // en gramos
-        calorias: 120, // en calorías (1g de proteína = 4 calorías)
-        porcentaje: 60, // % del total diario (aproximado)
+        gramos: 30,
+        calorias: 120,
+        porcentaje: 60,
       },
       hidratosDeCarbono: {
-        gramos: 50, // en gramos
-        calorias: 200, // en calorías (1g de carbohidratos = 4 calorías)
-        porcentaje: 20, // % del total diario (aproximado)
+        gramos: 50,
+        calorias: 200,
+        porcentaje: 20,
       },
-      azucares: 7, // en gramos
-      grasasSaturadas: 10, // en gramos
-      grasasMonoinsaturadas: 15, // en gramos
-      grasasPoliinsaturadas: 3, // en gramos
-      fibra: 6, // en gramos
-      sal: 2, // en gramos
+      azucares: 7,
+      grasasSaturadas: 10,
+      grasasMonoinsaturadas: 15,
+      grasasPoliinsaturadas: 3,
+      fibra: 6,
+      sal: 2,
     },
     fechaElaboracion: "12 de Septiembre de 2024",
     categoria: ["Facil"],
@@ -123,7 +123,7 @@ export const recetas = {
   sopaTomateAlbahaca: {
     nombrePlato: "Sopa de Tomate y Albahaca",
     tiempoElaboracion: 10,
-    tiempoCoccion: 20, // Número en lugar de texto
+    tiempoCoccion: 20,
     cantidadRaciones: 4,
     complejidad: "Fácil",
     ingredientes: [
@@ -152,28 +152,28 @@ export const recetas = {
       "Si quieres una textura aún más suave, cuela la sopa después de triturarla.",
     urlImage: "/assets/tomateAlbahaca.jpg",
     infoNutricional: {
-      totalCalorias: 150, // por ración
+      totalCalorias: 150,
       grasas: {
-        gramos: 8, // en gramos
-        calorias: 72, // en calorías (1g de grasa = 9 calorías)
-        porcentaje: 15, // % del total diario (aproximado)
+        gramos: 8,
+        calorias: 72,
+        porcentaje: 15,
       },
       proteinas: {
-        gramos: 3, // en gramos
-        calorias: 12, // en calorías (1g de proteína = 4 calorías)
-        porcentaje: 35, // % del total diario (aproximado)
+        gramos: 3,
+        calorias: 12,
+        porcentaje: 35,
       },
       hidratosDeCarbono: {
-        gramos: 20, // en gramos
-        calorias: 80, // en calorías (1g de carbohidratos = 4 calorías)
-        porcentaje: 50, // % del total diario (aproximado)
+        gramos: 20,
+        calorias: 80,
+        porcentaje: 50,
       },
-      azucares: 10, // en gramos
-      grasasSaturadas: 1, // en gramos
-      grasasMonoinsaturadas: 5, // en gramos
-      grasasPoliinsaturadas: 1, // en gramos
-      fibra: 4, // en gramos
-      sal: 1, // en gramos
+      azucares: 10,
+      grasasSaturadas: 1,
+      grasasMonoinsaturadas: 5,
+      grasasPoliinsaturadas: 1,
+      fibra: 4,
+      sal: 1,
     },
     fechaElaboracion: "12 de Septiembre de 2024",
     categoria: ["Vegetariano", "Facil", "Sin Gluten"],
@@ -288,7 +288,7 @@ export const recetas = {
       "Usa una variedad de setas para un sabor más complejo y profundo.",
     urlImage: "/assets/risottoSetas.jpg",
     infoNutricional: {
-      totalCalorias: 500, // por ración
+      totalCalorias: 500,
       grasas: {
         gramos: 20,
         calorias: 180,
@@ -356,7 +356,7 @@ export const recetas = {
     trucoChef: "Añade un chorrito de limón al servir para realzar los sabores.",
     urlImage: "/assets/curryLentejas.jpg",
     infoNutricional: {
-      totalCalorias: 450, // por ración
+      totalCalorias: 450,
       grasas: {
         gramos: 18,
         calorias: 162,
@@ -425,7 +425,7 @@ export const recetas = {
       "Añade trozos de tocino crujiente para un sabor extra y una textura contrastante.",
     urlImage: "/assets/quicheEspinacas.jpg",
     infoNutricional: {
-      totalCalorias: 500, // por ración
+      totalCalorias: 500,
       grasas: {
         gramos: 30,
         calorias: 270,
@@ -496,7 +496,7 @@ export const recetas = {
       "Utiliza una esterilla de bambú y presión firme para lograr un rollo compacto y bien sellado.",
     urlImage: "/assets/sushiVegetariano.jpg",
     infoNutricional: {
-      totalCalorias: 300, // por ración (2 rollos)
+      totalCalorias: 300,
       grasas: {
         gramos: 10,
         calorias: 90,
@@ -850,7 +850,7 @@ export const recetas = {
       "Puedes agregar garbanzos cocidos para aumentar el contenido de proteínas.",
     urlImage: "/assets/quinoaVegetales.jpg",
     infoNutricional: {
-      totalCalorias: 250, // por ración
+      totalCalorias: 250,
       grasas: {
         gramos: 10,
         calorias: 90,
@@ -910,7 +910,7 @@ export const recetas = {
       "Puedes agregar otras verduras asadas o crudas para darle más textura y sabor.",
     urlImage: "/assets/lechugaLentejas.jpg",
     infoNutricional: {
-      totalCalorias: 180, // por ración (2 tacos)
+      totalCalorias: 180,
       grasas: {
         gramos: 8,
         calorias: 72,

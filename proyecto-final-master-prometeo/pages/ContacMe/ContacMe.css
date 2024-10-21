@@ -1,0 +1,193 @@
+/* Aca empiezo a maquetar la primera section containerInfoContacMe */
+
+.containerInfoContacMe {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: var(--global-padding);
+}
+
+.titleContacMe {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: var(--global-margin);
+  color: var(--secundary-color-text);
+  font-weight: 700;
+}
+
+.titleContactUs {
+  color: var(--secundary-color-text);
+  margin-bottom: var(--global-margin);
+  font-weight: 700;
+}
+.pImportant {
+  color: rgb(183, 11, 46);
+  font-weight: 900;
+}
+.infocontact {
+  line-height: 1.5;
+}
+
+/* Aca empiezo a maquetar la segunda section containerButtonOption */
+
+.containerButtonOption {
+  text-align: center;
+  padding: var(--global-padding);
+  width: 100%;
+}
+.ulcontentOptionContact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  margin: 0 auto;
+  width: 100%;
+  justify-items: center;
+  gap: var(--global-gap);
+}
+
+.liContentOptionContact {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: var(--global-padding-short);
+  cursor: pointer;
+  justify-content: center;
+  gap: var(--global-gap);
+  transition: color 0.3s ease;
+}
+.liContentOptionContact:hover span {
+  transform: scale(1.3) translateY(10%);
+  transition: transform 0.5s ease;
+}
+.textLi {
+  color: var(--secundary-color-text);
+  font-weight: 900;
+}
+.hide-text {
+  color: transparent;
+}
+.bi-lightbulb,
+.bi-chat-square-text,
+.bi-question-lg {
+  font-size: 60px;
+  color: white;
+}
+
+.titleLabel {
+  color: var(--secundary-color-text);
+  font-weight: 700;
+  line-height: 3;
+}
+/* Aca empiezo a maquetar la segunda section containerTlf */
+.containerTlf {
+  padding: var(--global-padding);
+}
+.containterInfoTlf {
+  width: 100%;
+  padding: var(--global-padding);
+  border-radius: 12px;
+  background-color: var(--secundary-color-text);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  line-height: 1.5;
+}
+.containterInfoTlf h3,
+.containterInfoTlf h4,
+.containterInfoTlf span {
+  color: var(--bg-color);
+}
+.containterInfoTlf span {
+  font-size: 2.2rem;
+  font-weight: 900;
+}
+
+/* Aca maqueto el formElogio */
+#containerResultOption {
+  margin-top: var(--global-margin);
+}
+/* Estilos generales para formulario */
+.formElogio {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgb(243, 242, 242);
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Diseño de grid para los campos del formulario */
+.formElogio input,
+.formElogio select,
+.formElogio textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  align-content: center;
+}
+
+.formElogio textarea {
+  resize: vertical;
+}
+
+/* Estilos para los botones */
+.formElogio .button-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formElogio button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.formElogio button[type="submit"],
+.formElogio button[type="reset"] {
+  background-color: var(--secundary-color-text);
+  color: white;
+  font-weight: 700;
+  transition: 0.5s all ease-out;
+  margin-right: var(--global-margin-short);
+  margin-left: var(--global-margin-short);
+}
+
+/* Estilos Responsivos */
+@media (min-width: 768px) {
+  .formElogio {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .formElogio input,
+  .formElogio select,
+  .formElogio textarea {
+    width: 100%;
+  }
+
+  .formElogio.button-group {
+    grid-column: span 2;
+    justify-content: space-around;
+  }
+}
+
+/* aca maqueto las mediasquery */
+
+@media (max-width: 768px) {
+  .ulcontentOptionContact {
+    display: block;
+    width: 100%;
+    padding: var(--global-padding);
+  }
+  .liContentOptionContact {
+    width: 100%;
+    margin-bottom: var(--global-margin);
+  }
+}

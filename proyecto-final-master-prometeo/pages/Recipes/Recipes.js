@@ -8,11 +8,13 @@ import {
   recipeContentEasy,
   recipesContentCeliac,
   recipesContentDessert,
+  printMainResultSearchRecipes,
 } from "../../components/RecipesCard/RecipesCard";
 import { shortVideos } from "../../data/dataShortVideosYoutube";
 import { ScrollTop } from "../../Utils/ScrollTop";
 import { openModal } from "../../components/RecipesCard/RecipesCard";
 
+//Funcion principal que me pinta todo el contenido que va a tener el HTML cuando se abra por defecto la pagina o cuando se quiera acceder mediante un click en los enlaces del nav del
 export const Recipes = () => {
   const main = document.querySelector("main");
   cleanPage(main);
@@ -25,11 +27,12 @@ export const Recipes = () => {
     <div class="container-input-button-recipes">
     <form class="formRecipes">
     <input type="text" id="foodRecipesInput" name="foodRecipesInput" placeholder=" ej: Tarta de frambuesa" required>
-    <button type="submit" class="btnSearchFoodRecipes" id="btnSearchFoodRecipes"><i class="bi bi-search" aria-hidden="true"></i></button>
+    <button type="button" class="btnSearchFoodRecipes" id="btnSearchFoodRecipes"><i class="bi bi-search" aria-hidden="true"></i></button>
     </form>
     </div>
     </div>
     </div>
+    <section id="mainContainerRecipes"></section>
     <div class="containerDestacados">
     <h3 class="titleDestacados">Recetas destacadas del día</h3>
     <div id="CardsDestacados" class="containerCardsDestacados"></div>
@@ -39,28 +42,54 @@ export const Recipes = () => {
     <div class="modalContent"></div>
     </div>
 
-    <section id="ShortsVideosYoutube">
+    <section id="ShortsVideosYoutube" class="contentDivObserve ">
     <h3 class="titleVideosShort">Inspirate y cocina con estos vídeos</h3>
     <div id="containerShortsVideosYoutube"></div>
     <button class="btnIframes">VER TODOS LOS VÍDEOS CORTOS</button>
     </section>
-    <section id="searchAllRecipes">
+    <section id="searchAllRecipes" class="contentDivObserve ">
     <div class="containerAllBtnRecipes"></div>
     <div id="containerSearchAllRecipes" class="divcontainerSearchAllRecipes"></div>
     </section>
     
     `;
+
+  //Aca maquetare el IntersectionObserve
+
+  const contentObserveVideos = document.querySelector("#ShortsVideosYoutube");
+  const contentObserveRecipes = document.querySelector("#searchAllRecipes");
+  const handlerIntersection = (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      } else {
+        entry.target.classList.remove("visible");
+      }
+    });
+  };
+  const observer = new IntersectionObserver(handlerIntersection, {
+    threshold: 0.1,
+  });
+  observer.observe(contentObserveVideos);
+  observer.observe(contentObserveRecipes);
+
+  //Aca selecciono los contenedores, donde mas adelante insertare contenido
   const divcontainerCardsDestacados = document.querySelector(
     ".containerCardsDestacados"
   );
   const divcontainerSearchAllRecipes = document.querySelector(
     ".divcontainerSearchAllRecipes"
   );
+  const sectionMainContainerRecipes = document.querySelector(
+    "#mainContainerRecipes"
+  );
 
-  printRecipesCards(recetas, divcontainerCardsDestacados); // funcion que me pinta las recetas destacadas
+  //funciones que me pointamn por defecto en el HTML en la pages Recipes  las recetas destacadas, los shortVideosYoutube y todas las recetas de mi dataLabel
+  printRecipesCards(recetas, divcontainerCardsDestacados);
   prinDefaultAllRecipes(recetas, divcontainerSearchAllRecipes);
-
   printShortVideosYoutube(); //Funcion que me imprime los short videos de youtube
+
+  //Resto de funciones que me pintas en el HTML contenido segun las busquedas en los input o los listener de os btn
   printAllVideosShortsYoutube(shortVideos); //-funcion que se ejecuta al darle click al btn y pinta todos los shortVideos que encuentra en la dataShortVideosYoutube
   insertBtnSearchAllRecipes(); //Funcion que inserta en la section searchAllRecipes los btn para buscar las recetas segun criterios
   printAllRecipes(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn todas las recetas, Todas las recetas de mi data
@@ -68,6 +97,17 @@ export const Recipes = () => {
   printAllRecipesEasy(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn faciles y rapidas Todas las recetas de mi data con las coincidencias
   printAllRecipesCeliac(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn sin gluten, Todas las recetas de mi data con las coincidencias
   printAllRecipesDessert(recetas, divcontainerSearchAllRecipes); //Funcion que me pinta luego de drle click al btn postres, Todas las recetas de mi data con las coincidencias
+  printResultSearchRecipes(recetas, sectionMainContainerRecipes);
+};
+
+//Funcion principal del input que me filtra y me pinta las coincidencias de la keyword con mi dataRecipes y me lo pinta en el mainContainer
+const printResultSearchRecipes = (recetas, sectionMainContainerRecipes) => {
+  document
+    .querySelector("#btnSearchFoodRecipes")
+    .addEventListener("click", (event) => {
+      event.preventDefault();
+      printMainResultSearchRecipes(recetas, sectionMainContainerRecipes);
+    });
 };
 
 //funcion que pinta 3 short videos y  que se insertara en el #containerShortsVideosYoutube y se veran por defecto
@@ -107,7 +147,6 @@ const printAllVideosShortsYoutube = (shortVideos) => {
     cleanPage(main);
     main.style.backgroundImage = "url('/assets/bg-Recipes.jpg')";
 
-    // Estructura de la página de búsqueda
     main.innerHTML = `
       <div class="containerInputSearchFood">
         <h1 class="title-home title-home-recipes">Healthy</h1>
@@ -148,8 +187,6 @@ const printAllVideosShortsYoutube = (shortVideos) => {
 
     container.appendChild(ul);
     main.appendChild(container);
-
-    // Asegúrate de que el contenedor existe antes de llamar a la función de filtrado
     filterShortVideosYoutube(shortVideos);
   });
 };
@@ -171,7 +208,12 @@ const filterShortVideosYoutube = (shortVideos) => {
 
       // Verificar si el input está vacío
       if (keyword.trim() === "") {
-        filterShortVideosYoutube(shortVideos);
+        cleanPage(containerAllShortsVideosYoutube);
+        document.querySelector("#containerAllShortsVideosYoutube").innerHTML = `
+         <p id="error-message">"Por favor, ingrese un término de búsqueda."</p>
+        `;
+        document.querySelector(".containerCantVideos").innerHTML = "";
+        return;
       }
 
       const filteredVideos = shortVideos.filter((video) =>
@@ -270,7 +312,6 @@ const insertBtnSearchAllRecipes = () => {
 };
 //Funcion que me pinta todas las recetas de mi base de datos
 const printAllRecipes = (recetas, divcontainerSearchAllRecipes) => {
-  // Agregar el listener al botón
   document
     .querySelector("#btnSearchAllRecipes")
     .addEventListener("click", () => {
