@@ -92,9 +92,6 @@
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   align-items: center;
-  margin-bottom: var(--global-margin-short);
-  border-bottom: 1px solid white;
-  height: 40%;
 }
 .containerInfo p {
   display: flex;
@@ -435,6 +432,7 @@ body.modalActive {
     font-size: 1rem;
   }
   #containerLabelsRecipe {
+    border-top: 1px var(--bg-color) solid;
     margin-top: var(--global-margin);
   }
 }
