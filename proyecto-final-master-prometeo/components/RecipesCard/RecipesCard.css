@@ -58,6 +58,7 @@
 .recipeName {
   color: var(--terciary-color-text);
   font-size: 1rem;
+  padding: var(--global-padding-short);
 }
 .containerInfo .textModal,
 .textModal {

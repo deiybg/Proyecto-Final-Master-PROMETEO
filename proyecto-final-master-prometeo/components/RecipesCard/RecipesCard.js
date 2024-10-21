@@ -49,7 +49,6 @@ export const printMainResultSearchRecipes = (
       li.innerHTML = `
             <div>
               <img class="imgRecipesDestacadasAllRecipes" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
-              <h4 class="titleDestacadosDescription">Receta destacada</h4>
               <h5 class="recipeName">${receta.nombrePlato}</h5>
             </div>
           `;
@@ -85,7 +84,6 @@ export const prinDefaultAllRecipes = (
           <div>
             <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
             <div class="containerTitleAndDestacados">
-            <h4 class="titleDestacadosDescription">Receta destacada</h4>
             <h5 class="recipeName">${receta.nombrePlato}</h5>
             </div>
           </div>
@@ -120,7 +118,7 @@ export const recipeContentVegetarian = (
       li.innerHTML = `
               <div>
               <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
-              <h4 class="titleDestacadosDescription">Receta destacada</h4>
+              <h4 class="titleDestacadosDescription">Receta Vegetariana</h4>
               <h5 class="recipeName">${receta.nombrePlato}</h5>
               </div>
           `;
@@ -151,7 +149,7 @@ export const recipeContentEasy = (recetas, divcontainerSearchAllRecipes) => {
       li.innerHTML = `
               <div>
               <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
-              <h4 class="titleDestacadosDescription">Receta destacada</h4>
+              <h4 class="titleDestacadosDescription">Receta Fácil y Rápida</h4>
               <h5 class="recipeName">${receta.nombrePlato}</h5>
               </div>
           `;
@@ -181,7 +179,7 @@ export const recipesContentCeliac = (recetas, divcontainerSearchAllRecipes) => {
       li.innerHTML = `
           <div>
           <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
-          <h4 class="titleDestacadosDescription">Receta destacada</h4>
+          <h4 class="titleDestacadosDescription">Receta Sin Gluten</h4>
           <h5 class="recipeName">${receta.nombrePlato}</h5>
           </div>
       `;
@@ -214,7 +212,7 @@ export const recipesContentDessert = (
       li.innerHTML = `
               <div>
               <img class="imgRecipesDestacadas" src="${receta.urlImage}" alt="${receta.nombrePlato}"/>
-              <h4 class="titleDestacadosDescription">Receta destacada</h4>
+              <h4 class="titleDestacadosDescription">Postre</h4>
               <h5 class="recipeName">${receta.nombrePlato}</h5>
               </div>
           `;
