@@ -402,6 +402,9 @@ body.modalActive {
     min-width: 100%;
     min-height: 100%;
   }
+  .containerIngredients {
+    margin-top: var(--global-margin);
+  }
   #contentBtn {
     border-top: 1px var(--secundary-color-text) solid;
     border-bottom: 1px var(--secundary-color-text) solid;
