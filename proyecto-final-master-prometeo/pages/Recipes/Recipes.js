@@ -26,7 +26,7 @@ export const Recipes = () => {
     <p class="p-recipes">¿Qué cocinamos hoy?</p>
     <div class="container-input-button-recipes">
     <form class="formRecipes">
-    <input type="text" id="foodRecipesInput" name="foodRecipesInput" placeholder=" ej: Tarta de frambuesa" required>
+    <input type="text" id="foodRecipesInput" name="foodRecipesInput" placeholder=" ej: Tarta de verduras" required>
     <button type="button" class="btnSearchFoodRecipes" id="btnSearchFoodRecipes"><i class="bi bi-search" aria-hidden="true"></i></button>
     </form>
     </div>
@@ -108,6 +108,14 @@ const printResultSearchRecipes = (recetas, sectionMainContainerRecipes) => {
       event.preventDefault();
       printMainResultSearchRecipes(recetas, sectionMainContainerRecipes);
     });
+  document
+    .querySelector("#foodRecipesInput")
+    .addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        printMainResultSearchRecipes(recetas, sectionMainContainerRecipes);
+      }
+    });
 };
 
 //funcion que pinta 3 short videos y  que se insertara en el #containerShortsVideosYoutube y se veran por defecto
@@ -153,7 +161,7 @@ const printAllVideosShortsYoutube = (shortVideos) => {
         <p class="p-recipes">¿Qué cocinamos hoy?</p>
         <div class="container-input-button-recipes">
           <form class="formRecipes">
-            <input type="text" id="foodRecipesInput" name="foodRecipesInput" placeholder="ej: Tarta de frambuesa" required>
+            <input type="text" id="foodRecipesInput" name="foodRecipesInput" placeholder="ej: salmon" required>
             <button type="submit" class="btnSearchFoodRecipes" id="btnSearchFoodRecipes">
               <i class="bi bi-search" aria-hidden="true"></i>
             </button>
@@ -192,54 +200,69 @@ const printAllVideosShortsYoutube = (shortVideos) => {
 };
 
 const filterShortVideosYoutube = (shortVideos) => {
+  // Evento para el botón de búsqueda
   document
     .querySelector("#btnSearchFoodRecipes")
     .addEventListener("click", (event) => {
       event.preventDefault();
+      searchVideos();
+    });
 
-      const keyword = document
-        .querySelector("#foodRecipesInput")
-        .value.toLowerCase();
+  // Evento para el teclado, detecta cuando se presiona "Enter"
+  document
+    .querySelector("#foodRecipesInput")
+    .addEventListener("keydown", (event) => {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        searchVideos();
+      }
+    });
 
-      const containerAllShortsVideosYoutube = document.querySelector(
-        "#containerAllShortsVideosYoutube"
-      );
+  // Función que contiene la lógica de búsqueda
+  const searchVideos = () => {
+    const keyword = document
+      .querySelector("#foodRecipesInput")
+      .value.toLowerCase();
+
+    const containerAllShortsVideosYoutube = document.querySelector(
+      "#containerAllShortsVideosYoutube"
+    );
+    cleanPage(containerAllShortsVideosYoutube);
+
+    // Verificar si el input está vacío
+    if (keyword.trim() === "") {
       cleanPage(containerAllShortsVideosYoutube);
-
-      // Verificar si el input está vacío
-      if (keyword.trim() === "") {
-        cleanPage(containerAllShortsVideosYoutube);
-        document.querySelector("#containerAllShortsVideosYoutube").innerHTML = `
+      document.querySelector("#containerAllShortsVideosYoutube").innerHTML = `
          <p id="error-message">"Por favor, ingrese un término de búsqueda."</p>
         `;
-        document.querySelector(".containerCantVideos").innerHTML = "";
-        return;
-      }
+      document.querySelector(".containerCantVideos").innerHTML = "";
+      return;
+    }
 
-      const filteredVideos = shortVideos.filter((video) =>
-        video.title.toLowerCase().includes(keyword)
-      );
+    const filteredVideos = shortVideos.filter((video) =>
+      video.title.toLowerCase().includes(keyword)
+    );
 
-      if (filteredVideos.length > 0) {
-        const div = document.createElement("div");
-        div.classList.add("containerAllShortsVideosYoutube");
-        const cantVideos = filteredVideos.length;
-        const divCantVideos = document.querySelector(".containerCantVideos");
-        divCantVideos.innerHTML = `<p class="pcantVideos">Esta${
-          cantVideos === 1 ? "" : "s"
-        } receta${cantVideos === 1 ? "" : "s"} coincide${
-          cantVideos === 1 ? "" : "n"
-        } con tu búsqueda "${keyword}". <span class="spanCantVideos">${cantVideos} receta${
-          cantVideos === 1 ? "" : "s"
-        } encontrada${cantVideos === 1 ? "" : "s"}</span></p>`;
+    if (filteredVideos.length > 0) {
+      const div = document.createElement("div");
+      div.classList.add("containerAllShortsVideosYoutube");
+      const cantVideos = filteredVideos.length;
+      const divCantVideos = document.querySelector(".containerCantVideos");
+      divCantVideos.innerHTML = `<p class="pcantVideos">Esta${
+        cantVideos === 1 ? "" : "s"
+      } receta${cantVideos === 1 ? "" : "s"} coincide${
+        cantVideos === 1 ? "" : "n"
+      } con tu búsqueda "${keyword}". <span class="spanCantVideos">${cantVideos} receta${
+        cantVideos === 1 ? "" : "s"
+      } encontrada${cantVideos === 1 ? "" : "s"}</span></p>`;
 
-        filteredVideos.forEach((video) => {
-          // Crear el ul contenedor para el video
-          const videoContainer = document.createElement("ul");
-          videoContainer.classList.add("ulContainerShortsVideosYoutube");
+      filteredVideos.forEach((video) => {
+        // Crear el ul contenedor para el video
+        const videoContainer = document.createElement("ul");
+        videoContainer.classList.add("ulContainerShortsVideosYoutube");
 
-          // Agregar el iframe al ul
-          videoContainer.innerHTML = `
+        // Agregar el iframe al ul
+        videoContainer.innerHTML = `
             <iframe class="iframeShortFilter" width="320" height="640" 
               src="${video.linkShortVideo}" 
               sandbox="allow-same-origin allow-scripts allow-popups" 
@@ -250,20 +273,20 @@ const filterShortVideosYoutube = (shortVideos) => {
             </iframe>
           `;
 
-          // Añadir el ul (contenedor del video) al div contenedor
-          div.appendChild(videoContainer);
-          containerAllShortsVideosYoutube.appendChild(div);
+        // Añadir el ul (contenedor del video) al div contenedor
+        div.appendChild(videoContainer);
+        containerAllShortsVideosYoutube.appendChild(div);
 
-          document.querySelector("#foodRecipesInput").value = "";
-        });
-      } else {
-        containerAllShortsVideosYoutube.innerHTML = `
-        <p id="error-message">No se encontraron videos para la consulta <span class="messageErrorVideo">" ${keyword} ".</span>Por favor inicie una nueva consulta.</p>
-        `;
         document.querySelector("#foodRecipesInput").value = "";
-        document.querySelector(".containerCantVideos").innerHTML = "";
-      }
-    });
+      });
+    } else {
+      containerAllShortsVideosYoutube.innerHTML = `
+        <p id="error-message">No se encontraron videos para la consulta <span class="messageErrorVideo">" ${keyword} ".</span>Por favor inicie una nueva consulta.</p>
+      `;
+      document.querySelector("#foodRecipesInput").value = "";
+      document.querySelector(".containerCantVideos").innerHTML = "";
+    }
+  };
 };
 
 //Funcion que insertara en el searchAllRecipes los btn opara las busquedas de recetas
