@@ -170,7 +170,7 @@ body.modalActive {
 .titleIngredients {
   color: var(--secundary-color-text);
   font-weight: 700;
-  margin: var(--global-margin) auto;
+  margin: 0 auto;
 }
 #ulContainerIngredients,
 #olBtnContent {
