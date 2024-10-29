@@ -161,7 +161,7 @@ const showFormSugerencia = () => {
               <option disabled selected>Escoge un tipo de consulta</option>
                 <option value="ingrediente">Recetas</option>
                 <option value="videos">Videos</option>
-                <option value="info-nutricional">Información Nutricional/option>
+                <option value="info-nutricional">Información Nutricional</option>
                 <option value="info-nutricional">Otras Sugerencias</option>
             </select>
     
