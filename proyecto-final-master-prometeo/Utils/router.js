@@ -5,7 +5,7 @@ import { NotFound } from "/pages/NotFound/NotFound";
 
 const routers = [
   {
-    path: "/Recetas",
+    path: "/",
     page: Recipes,
   },
   {

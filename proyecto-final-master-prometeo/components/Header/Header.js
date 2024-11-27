@@ -11,9 +11,9 @@ const template = () => {
  <button id="cerrar" class="cerrar-menu"><i class="bi bi-x-lg"></i></button>
  <ul class="nav-ul">
  <li>
- <a href="/Recetas" >Recetas</a>
+ <a href="/">Recetas</a>
  <li>
- <a href="/Informacion_Nutricional" >Información Nutricional</a>
+ <a href="/Informacion_Nutricional">Información Nutricional</a>
  </li>
  <li>
 <a href="/Contactame">Contactame</a>
