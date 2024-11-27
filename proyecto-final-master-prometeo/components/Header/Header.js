@@ -11,12 +11,12 @@ const template = () => {
  <button id="cerrar" class="cerrar-menu"><i class="bi bi-x-lg"></i></button>
  <ul class="nav-ul">
  <li>
- <a href="#" id="recipes">Recetas</a>
+ <a href="/Recetas" >Recetas</a>
  <li>
- <a href="#" id="nutritional-info">Información Nutricional</a>
+ <a href="/Informacion_Nutricional" >Información Nutricional</a>
  </li>
  <li>
- <button type="button" id="contactMe">Contáctame</button>
+<a href="/Contactame">Contactame</a>
  </li>
  </ul>
  </nav>
