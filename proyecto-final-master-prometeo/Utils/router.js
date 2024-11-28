@@ -27,3 +27,19 @@ export const router = () => {
     NotFound();
   }
 };
+
+window.addEventListener("popstate", router);
+window.addEventListener("DOMContentLoaded", router);
+
+export const navListeners = () => {
+  const navLinks = document.querySelectorAll("nav a");
+
+  for (const link of navLinks) {
+    link.addEventListener("click", (ev) => {
+      ev.preventDefault();
+      const path = ev.target.pathname;
+      history.pushState(null, null, path);
+      router();
+    });
+  }
+};

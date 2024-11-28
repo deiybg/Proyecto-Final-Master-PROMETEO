@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import { Recipes } from "/pages/Recipes/Recipes";
 
 import Footer from "./components/Footer/Footer";
-import { router } from "./Utils/router";
+import { router, navListeners } from "./Utils/router";
 
 const init = () => {
   Header();
@@ -13,3 +13,4 @@ const init = () => {
 
 init();
 router();
+navListeners();

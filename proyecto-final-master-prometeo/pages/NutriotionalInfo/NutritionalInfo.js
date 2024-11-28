@@ -76,7 +76,6 @@ export const NutritionalInfo = () => {
   // FUNCION QUE PINTA POR DEFECTO UN ALIMENTO EN LA PAGES INFOR NUTRICIONAL
   const printDefaultDataNutritional = async (quantity, unit, food) => {
     const result = await dataNutritional("100", "gram", "pineapple");
-    console.log(dataNutritional);
 
     printNutritionalInfo(result, "100", "gram", "pepino");
     printBreakdownCalories(result);
